@@ -1,0 +1,2638 @@
+﻿
+08-04 21:51:52.015 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:51:52.016 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:51:52.018 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:51:52.019 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:51:52.023 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:51:52.073 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:51:52.093 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:51:52.093 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:51:52.096 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:51:52.104 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:51:52.118 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:51:52.130 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:51:52.135 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:51:52.135 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:51:52.139 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:51:52.139 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:51:56.657 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:57.655 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:57.827 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:58.161 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:58.328 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:58.492 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:58.976 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:59.638 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:51:59.797 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:02.123 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:07.110 I/NearbyDiscovery(29077): (REDACTED) loadFastPairModule: 
+checkFeaturesAreAvailable:%d
+08-04 21:52:07.111 I/NearbyDiscovery(29077): loadFastPairModule: FastPair 
+module is downloaded. [CONTEXT service_id=265 ]
+08-04 21:52:07.147 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:52:07.147 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:52:07.150 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:52:07.154 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:52:07.162 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:52:07.178 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:52:07.183 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:52:07.185 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:52:07.187 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:52:07.191 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:52:07.201 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:52:07.214 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:52:07.217 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:52:07.219 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:52:07.222 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:52:07.222 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:52:12.972 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:52:12.990 I/NearbyDiscovery(29077): (REDACTED) 
+DeviceInfoGroupListener: The device pass battery info to seeker: %s, %s 
+battery=%s
+08-04 21:52:13.039 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=BaesEE14A197, feature-id=Bano] FastPairBattery: set batt to 
+bluetooth metadata, %s, value=%s
+08-04 21:52:13.088 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:52:13.097 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=BaesEE14A197, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:52:13.100 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:52:13.100 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=BaesEE14A197, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:52:13.101 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=BaesEE14A197, feature-id=Bano] FastPairBattery: 
+notifyBatteryStatusUpdated %s.
+08-04 21:52:13.112 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=BaesEE14A197, feature-id=Bano] FastPairBattery: battery 
+advertisement from %s has battery values updated, %s
+08-04 21:52:13.205 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Scan01E580B4] FastPairCache: Bloom filter changed, %s, newData=%s, 
+oldData=%s, scanMode=%s
+08-04 21:52:13.207 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft5BEF5600, feature-id=Bano] FastPairBattery: skip handling BLE 
+until %s, %s.
+08-04 21:52:13.374 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft055EF378, feature-id=Bano] FastPairBattery: skip handling BLE 
+until %s, %s.
+08-04 21:52:13.544 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft2B27AFFA, feature-id=Bano] FastPairBattery: skip handling BLE 
+until %s, %s.
+08-04 21:52:13.710 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:14.033 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:14.203 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:15.836 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:16.001 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:21.505 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:21.681 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:21.842 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:22.171 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:22.225 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:52:22.225 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:52:22.227 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:52:22.227 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:52:22.236 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:52:22.243 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:52:22.245 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:52:22.246 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:52:22.247 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:52:22.252 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:52:22.267 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:52:22.273 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:52:22.275 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:52:22.276 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:52:22.279 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:52:22.280 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:52:22.505 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:22.834 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:37.280 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:52:37.281 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:52:37.282 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:52:37.283 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:52:37.286 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:52:37.301 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:52:37.305 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:52:37.305 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:52:37.307 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:52:37.315 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:52:37.322 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:52:37.330 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:52:37.332 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:52:37.332 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:52:37.336 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:52:37.336 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:52:49.498 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:49.677 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:52.339 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:52:52.339 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:52:52.340 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:52:52.341 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:52:52.344 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:52:52.367 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:52:52.374 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:52:52.374 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:52:52.376 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:52:52.384 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:52:52.401 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:52:52.410 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:52:52.415 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:52:52.415 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:52:52.419 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:52:52.419 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:52:53.200 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:54.916 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:52:55.083 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:02.523 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:07.333 I/NearbyDiscovery(29077): (REDACTED) loadFastPairModule: 
+checkFeaturesAreAvailable:%d
+08-04 21:53:07.334 I/NearbyDiscovery(29077): loadFastPairModule: FastPair 
+module is downloaded. [CONTEXT service_id=265 ]
+08-04 21:53:07.421 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:53:07.422 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:53:07.423 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:53:07.423 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:53:07.429 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:53:07.459 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:53:07.468 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:53:07.468 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:53:07.473 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:53:07.481 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:53:07.502 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:53:07.509 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:53:07.512 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:53:07.513 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:53:07.516 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:53:07.516 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:53:22.519 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:53:22.519 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:53:22.523 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:53:22.524 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:53:22.526 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:53:22.556 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:53:22.562 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:53:22.562 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:53:22.563 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:53:22.570 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:53:22.592 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:53:22.601 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:53:22.603 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:53:22.603 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:53:22.608 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:53:22.608 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:53:36.845 I/serviceDiscovery(27871): [MdnsAdvertiser] Removing 
+service with ID 437
+08-04 21:53:37.156 I/serviceDiscovery(27871): [MdnsAdvertiser] Adding service 
+name: IkI4Q0YuapMAAA, type: _2E6A93B8915A._tcp, subtypes: , hostAddresses: , 
+hostname: null, port: 52581, network: null, expirationTime: null, txtRecord: 
+{b=MDg6MDI6M0M6QkI6QTE6MEQ, f=5180, n=TmV4dXMgQnJpZGdlIEhvc3Q, 
+IPv4=192.168.1.4} with ID 505 and subtypes {} advertisingOptions 
+MdnsAdvertisingOptions{ }
+08-04 21:53:37.157 I/serviceDiscovery(27871): [MdnsAdvertiser.wlan0] Service 
+437 getting re-added, cancelling exit announcements
+08-04 21:53:37.609 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:53:37.609 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:53:37.612 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:53:37.613 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:53:37.617 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:53:38.110 I/serviceDiscovery(27871): [MdnsAdvertiser.wlan0] Probing 
+finished for service 505
+08-04 21:53:38.135 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:53:38.138 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:53:38.138 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:53:38.139 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:53:38.150 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:53:38.169 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:53:38.179 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:53:38.181 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:53:38.181 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:53:38.184 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:53:38.184 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:53:38.254 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:53:38.258 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:53:38.268 I/NearbyDiscovery(29077): (REDACTED) FastPair: lock scan 
+rate if needed, %s, bondState=%s
+08-04 21:53:39.823 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:53:39.823 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:53:46.429 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:46.778 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:47.270 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:47.613 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:47.938 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:48.278 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:48.612 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:49.108 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:49.429 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:50.095 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:50.280 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:50.432 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:50.956 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:51.124 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:53:53.185 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:53:53.186 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:53:53.189 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:53:53.190 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:53:53.194 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:53:53.213 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:53:53.223 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:53:53.223 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:53:53.224 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:53:53.232 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:53:53.255 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:53:53.260 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:53:53.263 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:53:53.264 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:53:53.268 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:53:53.268 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:53:53.804 I/NearbyDiscovery(29077): (REDACTED) %s
+08-04 21:53:53.806 I/NearbyDiscovery(29077): (REDACTED) %s
+08-04 21:53:56.016 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:54:07.477 I/NearbyDiscovery(29077): (REDACTED) loadFastPairModule: 
+checkFeaturesAreAvailable:%d
+08-04 21:54:07.477 I/NearbyDiscovery(29077): loadFastPairModule: FastPair 
+module is downloaded. [CONTEXT service_id=265 ]
+08-04 21:54:08.270 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:54:08.270 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:54:08.272 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:54:08.274 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:54:08.278 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:54:08.336 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:54:08.342 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:54:08.342 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:54:08.344 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:54:08.355 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:54:08.383 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:54:08.399 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:54:08.409 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:54:08.409 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:54:08.412 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:54:08.412 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:54:17.745 W/ComponentDiscovery(24999): Class 
+com.google.firebase.installations.FirebaseInstallationsKtxRegistrar is not an 
+found.
+08-04 21:54:18.141 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:54:23.415 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:54:23.415 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:54:23.417 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:54:23.428 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:54:23.440 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:54:23.443 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:54:23.461 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:54:23.462 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:54:23.463 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:54:23.495 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:54:23.541 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:54:23.549 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:54:23.554 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:54:23.554 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:54:23.563 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:54:23.566 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:54:28.193 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:54:38.568 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:54:38.568 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:54:38.570 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:54:38.574 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:54:38.585 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:54:38.598 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:54:38.604 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:54:38.604 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:54:38.605 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:54:38.614 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:54:38.627 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:54:38.633 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:54:38.634 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:54:38.634 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:54:38.637 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:54:38.637 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:54:44.070 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:54:53.639 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:54:53.640 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:54:53.641 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:54:53.642 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:54:53.645 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:54:53.659 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:54:53.669 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:54:53.669 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:54:53.671 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:54:53.689 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:54:53.707 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:54:53.713 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:54:53.715 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:54:53.715 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:54:53.718 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:54:53.718 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:54:58.751 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:05.419 I/serviceDiscovery(27871): [MdnsAdvertiser] Removing 
+service with ID 455
+08-04 21:55:05.822 I/serviceDiscovery(27871): [MdnsAdvertiser] Adding service 
+name: I044Qk_8n14AAA, type: _FC9F5ED42C8A._tcp, subtypes: , hostAddresses: , 
+hostname: null, port: 53601, network: null, expirationTime: null, txtRecord: 
+{f=5180, n=MifJkGrL1fc8_eXseLMsH5s, IPv4=192.168.1.4} with ID 512 and subtypes 
+{} advertisingOptions MdnsAdvertisingOptions{ }
+08-04 21:55:06.780 I/serviceDiscovery(27871): [MdnsAdvertiser.wlan0] Probing 
+finished for service 512
+08-04 21:55:07.541 I/NearbyDiscovery(29077): (REDACTED) loadFastPairModule: 
+checkFeaturesAreAvailable:%d
+08-04 21:55:07.541 I/NearbyDiscovery(29077): loadFastPairModule: FastPair 
+module is downloaded. [CONTEXT service_id=265 ]
+08-04 21:55:08.721 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:55:08.721 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:55:08.724 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:55:08.727 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:55:08.731 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:55:08.772 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:55:08.780 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:55:08.781 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:55:08.784 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:55:08.805 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:55:08.830 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:55:08.849 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:55:08.852 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:55:08.852 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:55:08.858 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:55:08.858 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:55:14.569 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:16.596 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:16.680 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:55:16.710 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:55:16.744 I/NearbyDiscovery(29077): (REDACTED) FastPair: lock scan 
+rate if needed, %s, bondState=%s
+08-04 21:55:16.760 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:18.130 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:55:18.132 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:55:18.803 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:18.954 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:23.862 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:55:23.862 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:55:23.869 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:55:23.932 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:55:24.020 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:55:24.123 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:55:24.159 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:55:24.159 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:55:24.182 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:55:24.282 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:55:24.324 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:55:24.359 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:55:24.389 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:55:24.390 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:55:24.397 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:55:24.398 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:55:24.459 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:25.123 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:26.113 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:26.284 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:27.784 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:28.436 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:29.960 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:31.825 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:32.655 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:32.822 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:36.012 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:36.350 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:38.025 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:39.400 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:55:39.400 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:55:39.402 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:55:39.403 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:55:39.408 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:55:39.435 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:55:39.449 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:55:39.449 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:55:39.460 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:55:39.474 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:55:39.502 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:55:39.512 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:55:39.518 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:55:39.519 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:55:39.527 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:55:39.528 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:55:48.448 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:50.872 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:51.517 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:52.032 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:55:54.531 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:55:54.532 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:55:54.533 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:55:54.535 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:55:54.540 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:55:54.568 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:55:54.577 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:55:54.577 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:55:54.579 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:55:54.595 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:55:54.634 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:55:54.657 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:55:54.662 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:55:54.662 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:55:54.669 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:55:54.669 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:56:03.565 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:05.555 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:05.721 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:06.212 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:06.377 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:06.705 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:06.879 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:07.531 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:08.195 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:08.200 I/NearbyDiscovery(29077): (REDACTED) loadFastPairModule: 
+checkFeaturesAreAvailable:%d
+08-04 21:56:08.200 I/NearbyDiscovery(29077): loadFastPairModule: FastPair 
+module is downloaded. [CONTEXT service_id=265 ]
+08-04 21:56:08.355 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:09.671 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:56:09.672 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:56:09.673 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:56:09.674 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:56:09.677 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:56:09.691 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:09.696 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:56:09.700 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:56:09.700 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:56:09.701 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:56:09.707 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:56:09.723 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:56:09.734 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:56:09.739 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:56:09.739 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:56:09.743 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:56:09.743 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:56:11.010 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:16.838 I/NearbyDiscovery(29077): (REDACTED) %s
+08-04 21:56:24.746 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:56:24.746 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:56:24.747 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:56:24.748 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:56:24.751 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:56:24.773 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:56:24.795 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:56:24.796 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:56:24.798 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:56:24.805 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:56:24.830 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:56:24.839 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:56:24.845 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:56:24.845 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:56:24.853 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:56:24.853 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:56:35.740 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:38.383 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:39.856 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:56:39.857 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:56:39.858 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:56:39.859 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:56:39.862 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:56:39.882 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:56:39.887 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:56:39.887 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:56:39.890 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:56:39.907 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:56:39.928 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:56:39.946 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:56:39.950 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:56:39.951 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:56:39.956 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:56:39.957 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:56:41.364 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:42.831 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:43.353 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:43.683 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:44.015 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:44.186 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:44.530 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:44.851 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:46.530 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:46.866 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:47.032 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:47.362 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:47.688 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:48.184 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:48.674 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:50.009 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:54.322 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:55.471 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:56:55.471 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:56:55.472 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:56:55.474 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:56:55.477 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:56:55.495 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:56:55.499 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:56:55.499 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:56:55.503 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:56:55.511 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:56:55.552 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:56:55.564 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:56:55.568 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:56:55.569 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:56:55.573 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:56:55.574 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:56:56.278 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:57.262 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:57.429 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:57.590 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:57.757 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:57.921 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:58.080 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:58.241 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:58.409 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:58.736 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:56:59.574 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:00.073 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:05.536 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=ScanBE7CB0DC] FastPairCache: Bloom filter changed, %s, newData=%s, 
+oldData=%s, scanMode=%s
+08-04 21:57:05.538 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft46B2BCEB, feature-id=Bano] FastPairBattery: set batt to 
+bluetooth metadata, %s, value=%s
+08-04 21:57:05.550 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft46B2BCEB, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:05.552 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft46B2BCEB, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:05.552 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft46B2BCEB, feature-id=Bano] FastPairBattery: 
+notifyBatteryStatusUpdated %s.
+08-04 21:57:05.554 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft46B2BCEB, feature-id=Bano] FastPairBattery: battery 
+advertisement from %s has battery values updated, %s
+08-04 21:57:06.033 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:08.205 I/NearbyDiscovery(29077): (REDACTED) loadFastPairModule: 
+checkFeaturesAreAvailable:%d
+08-04 21:57:08.205 I/NearbyDiscovery(29077): loadFastPairModule: FastPair 
+module is downloaded. [CONTEXT service_id=265 ]
+08-04 21:57:08.869 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=ScanE60B1FBC] FastPairCache: Bloom filter changed, %s, newData=%s, 
+oldData=%s, scanMode=%s
+08-04 21:57:08.879 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Pbft7D4BEC2F, feature-id=Bano] FastPairBattery: Removed suppressed 
+battery, %s
+08-04 21:57:10.576 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:57:10.577 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:57:10.580 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:57:10.581 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:57:10.594 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:57:10.626 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:57:10.635 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:57:10.635 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:57:10.638 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:57:10.653 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:57:10.690 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:57:10.716 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:57:10.722 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:57:10.722 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:57:10.729 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:57:10.729 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:57:12.021 W/NearbyDiscovery(29077): RfcommEventStreamMedium: 
+mac=XX:XX:XX:XX:B1:1C [36] Failed to read from socket. Retry times remaining 5 
+[CONTEXT service_id=265 ]
+08-04 21:57:12.022 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:57:12.028 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:57:12.028 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:57:12.029 I/NearbyDiscovery(29077): (REDACTED) FastPair: EventStream 
+disconnected, %s
+08-04 21:57:12.034 I/NearbyDiscovery(29077): 
+FastPairControllerEventStreamListener: onDisconnect, try to recover event 
+stream. [CONTEXT service_id=265 ]
+08-04 21:57:12.037 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+maybeRecoverEventStream: schedule task for event stream recovery, %s
+08-04 21:57:12.054 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+Event stream is recoverable for non-LE device, bonded-%s
+08-04 21:57:12.055 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: Reset battery info 
+in Bluetooth metadata after timeout, %s
+08-04 21:57:12.056 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:57:12.147 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.192 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.193 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:57:12.200 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.200 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.201 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.216 I/NearbyDiscovery(29077): (REDACTED) FastPair: 
+updateFastPairItemFmaState for %s, update to (%s).
+08-04 21:57:12.230 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Mdud42C673FF] FastPairCacheMetadataUpdateManager: Throttling 
+metadata update check for %s
+08-04 21:57:12.259 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.259 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.265 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.266 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.271 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.273 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+DeviceStateManager: removeProfile: %s, action=%s
+08-04 21:57:12.273 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+destroyEventStreamIfNeeded: %s, type=%s
+08-04 21:57:12.274 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+destroyEventStreamIfNeeded: keep RFCOMM connection, %s
+08-04 21:57:12.353 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.353 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.484 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.484 I/NearbyDiscovery(29077): (REDACTED) FastPair: HfpDevice is 
+active, %s
+08-04 21:57:12.506 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.508 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+DeviceStateManager: removeProfile: %s, action=%s
+08-04 21:57:12.509 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+adjustEventStreamAfterProfileDisconnection: profiles are all disconnected, %s
+08-04 21:57:12.509 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+destroyEventStream: %s
+08-04 21:57:12.509 I/NearbyDiscovery(29077): (REDACTED) EventStreamManager: 
+Disconnect event stream, %s
+08-04 21:57:12.509 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:57:12.519 I/NearbyDiscovery(29077): (REDACTED) %s %s
+08-04 21:57:12.567 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.568 I/NearbyDiscovery(29077): (REDACTED) FastPair: HfpDevice 
+disconnected, %s
+08-04 21:57:12.569 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.579 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.579 I/NearbyDiscovery(29077): (REDACTED) FastPair: HfpDevice 
+disconnected, %s
+08-04 21:57:12.580 I/NearbyDiscovery(29077): (REDACTED) 
+onProfileConnectionStateChange: action=%s, prevState=%s, state=%s, %s
+08-04 21:57:12.593 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:12.617 W/GuestManager(25544): cancelDiscovery : not start advertise
+08-04 21:57:12.617 W/GuestManager(25544): cancelDiscovery : not start scan
+08-04 21:57:12.638 I/bt_btif_dm(25544): system/btif/src/btif_dm.cc:3511 
+btif_dm_cancel_discovery: Cancel search
+08-04 21:57:12.665 E/GuestManager(25544): stopNotiDiscovery : not started
+08-04 21:57:12.681 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.688 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:12.728 I/NearbySharing(29077): SendProvider: Stopping discovery.
+08-04 21:57:12.774 I/NearbyConnections(29077): Client 26928329 requested 
+discovery to stop.
+08-04 21:57:12.820 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.828 I/NearbySharing(29077): [NS_DEBUG] DiscoveryController 
+stopped.
+08-04 21:57:12.829 W/ActivityManager(27871): Unable to start service Intent { a
+ct=com.google.android.gms.nearby.fastpair.service.ACTION_HEADSET_ACTIVE_CHANGED
+ xflg=0x4 
+cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService (has 
+extras) } U=150: not found
+08-04 21:57:12.839 I/BluetoothAdapterProperties(25544): 
+Callback:discoveryStateChangeCallback with state:0
+08-04 21:57:12.839 W/BluetoothAdapterProperties(25544): Skip sending 
+discovery_finished duplicatedly
+08-04 21:57:12.891 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:12.892 I/NearbyDiscovery(29077): (REDACTED) FastPair: 
+onAdapterStateChange: state=%s
+08-04 21:57:12.892 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:12.895 I/NearbyDiscovery(29077): FastPairController: 
+removeAllEventStreamInitializationDevice [CONTEXT service_id=265 ]
+08-04 21:57:12.895 I/NearbyDiscovery(29077): FastPairController: 
+destroyAllEventStreams [CONTEXT service_id=265 ]
+08-04 21:57:12.895 I/NearbyDiscovery(29077): (REDACTED) EventStreamManager: 
+Disconnect all event streams, size=%s
+08-04 21:57:12.895 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:12.896 I/NearbyDiscovery(29077): (REDACTED) SdpManager: Remove all 
+pending sdp actions (%s)
+08-04 21:57:12.912 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:12.912 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 21:57:12.920 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:12.920 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 21:57:12.920 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+nothing changed, eventType=%s
+08-04 21:57:13.065 W/[MCFDs]_CommunicationManager(30236): stopDiscovery - 
+ignore - Bluetooth is off
+08-04 21:57:13.086 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:13.086 I/NearbyDiscovery(29077): (REDACTED) FastPair: 
+onAdapterStateChange: state=%s
+08-04 21:57:13.086 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:13.100 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:13.120 I/NearbyDiscovery(29077): (REDACTED) DiscoveryController, 
+showNotification, itemSize=%s
+08-04 21:57:13.121 I/NearbyDiscovery(29077): (REDACTED) Show notifications: %d 
+total, no changes since last shown, no-op.
+08-04 21:57:13.331 I/fxla    (29316): (REDACTED) Scoped context discovery 
+schemas: %s.
+08-04 21:57:13.992 I/ShareLive:QuickShare(29579): [D2D][RxScheduler-8] 
+[CapabilitySourceImpl] supportsSocialAdditionalDiscovery=true
+08-04 21:57:13.992 I/ShareLive:QuickShare(29579): [D2D][RxScheduler-8] 
+[SettingsRepositoryImpl] isDiscoveryAdditionalFeatureSupported qs=true, 
+gs=true, mcf=true, isKnoxDopMode=false
+08-04 21:57:14.059 I/ShareLive:QuickShare(29579): [D2D][RxScheduler-1] 
+[AlarmDataSourceImpl] cancelUpdateDiscoveryAlarm existingTriggerTime: 0
+08-04 21:57:14.064 I/ShareLive:QuickShare(29579): [D2D][RxScheduler-1] 
+[BroadcastUtil] sendBroadcastUpdateVisibility visibilityType=0 (legacy=2), 
+protocolXDiscovery: false
+08-04 21:57:14.072 I/MCFQS   ( 5662): (DeviceDiscoverySystemReceiver) 
+onReceive()-[td:main] action : com.samsung.android.sharelive.DEVICE_VISIBILITY
+08-04 21:57:14.085 I/ShareLive:QuickShare(29580): [D2D][RxScheduler-7] 
+[CapabilitySourceImpl] supportsSocialAdditionalDiscovery=true
+08-04 21:57:14.085 I/ShareLive:QuickShare(29580): [D2D][RxScheduler-7] 
+[SettingsRepositoryImpl] isDiscoveryAdditionalFeatureSupported qs=true, 
+gs=true, mcf=true, isKnoxDopMode=false
+08-04 21:57:14.098 I/MCFQS   ( 5662): (DeviceDiscoverySystemReceiver) 
+isVisibilityAllowed()-[td:disco] no - visibility off
+08-04 21:57:14.099 I/MCFQS   ( 5662): (DiscoveryResponseUseCaseImpl) 
+listenPhoneVisibility()-[td:disco] type: NO_ONE
+08-04 21:57:14.100 I/[ContinuitySDK_1.3.8002]_ContinuityDiscoveryManagerImpl( 
+5662): stopAdvertisement - -
+08-04 21:57:14.467 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.559 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.589 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:14.589 I/NearbyDiscovery(29077): (REDACTED) FastPair: 
+onAdapterStateChange: state=%s
+08-04 21:57:14.591 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.891 I/BluetoothAdapterService(25544): sendUuidsInternal: 
+Received service discovery UUIDs for device XX:XX:XX:XX:B1:1C
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: Uuid 
+fetch is done, %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.899 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.900 I/NearbyDiscovery(29077): (REDACTED) SdpManager: Add cached 
+device, %s, forceAdd=%s
+08-04 21:57:14.905 I/BluetoothAdapterService(25544): sendUuidsInternal: 
+Received service discovery UUIDs for device XX:XX:XX:XX:B1:0D
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: Uuid 
+fetch is done, %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.918 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.919 I/NearbyDiscovery(29077): (REDACTED) SdpManager: Add cached 
+device, %s, forceAdd=%s
+08-04 21:57:14.920 I/BluetoothAdapterService(25544): sendUuidsInternal: 
+Received service discovery UUIDs for device XX:XX:XX:XX:33:15
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: Uuid 
+fetch is done, %s
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.937 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler:  %s
+08-04 21:57:14.949 I/NearbyDiscovery(29077): (REDACTED) SdpManager: Add cached 
+device, %s, forceAdd=%s
+08-04 21:57:14.957 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.957 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 21:57:14.957 I/NearbyDiscovery(29077): PureOffloadFastPairScanner: 
+Skipping stop, already stopped scanning [CONTEXT service_id=265 ]
+08-04 21:57:14.958 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:14.960 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 21:57:14.961 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+nothing changed, eventType=%s
+08-04 21:57:14.973 I/IC_Service[1.2.95](29399): registerServiceDiscoveryUUID 
+:: add spp uuid
+08-04 21:57:14.981 I/ShareLive:QuickShare(29579): [D2D][RxScheduler-7] 
+[AlarmDataSourceImpl] cancelUpdateDiscoveryAlarm existingTriggerTime: 0
+08-04 21:57:14.983 I/ShareLive:QuickShare(29579): [D2D][RxScheduler-7] 
+[BroadcastUtil] sendBroadcastUpdateVisibility visibilityType=3 (legacy=0), 
+protocolXDiscovery: false
+08-04 21:57:14.984 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:14.984 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 21:57:14.985 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:14.990 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 21:57:14.990 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Stopping scan, %s
+08-04 21:57:14.990 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+StartScanning with stop current scanning in %s
+08-04 21:57:14.996 I/MCFQS   ( 5662): (DeviceDiscoverySystemReceiver) 
+onReceive()-[td:main] action : com.samsung.android.sharelive.DEVICE_VISIBILITY
+08-04 21:57:15.003 I/MCFQS   ( 5662): (DeviceDiscoverySystemReceiver) 
+startDeviceConnectionService()-[td:disco] Reason: 1
+08-04 21:57:15.005 I/MCFQS   ( 5662): (DiscoveryResponseUseCaseImpl) 
+listenPhoneVisibility()-[td:disco] type: EVERYONE
+08-04 21:57:15.026 I/NearbySharing(29077): SendProvider: Starting discovery 
+with options: SendManagerOptions(mode=BACKGROUND, flowId=3680484303409014795, 
+uwbSenderInfo=null, deviceType=1, dataUsage=2, vendorId=0).
+08-04 21:57:15.076 I/ShareLive:QuickShare(29580): [D2D][RxScheduler-3] 
+[AlarmDataSourceImpl] cancelUpdateDiscoveryAlarm existingTriggerTime: 0
+08-04 21:57:15.080 I/NearbyConnections(29077): Client 26928329 requested 
+discovery to start.
+08-04 21:57:15.105 I/ShareLive:QuickShare(29580): [D2D][RxScheduler-3] 
+[BroadcastUtil] sendBroadcastUpdateVisibility visibilityType=0 (legacy=2), 
+protocolXDiscovery: false
+08-04 21:57:15.118 I/[ContinuitySDK_1.3.8002]_ContinuityDiscoveryManagerImpl( 
+5662): startAdvertisement - -
+08-04 21:57:15.143 I/MCFQS   ( 5662): (ContinuityDiscoveryRepository) 
+startListen()-[td:disco] set IsAdvertisementStarted
+08-04 21:57:15.210 I/MCFQS   (29634): (DeviceDiscoverySystemReceiver) 
+onReceive()-[td:main] Not available for user(150)
+08-04 21:57:15.226 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:15.226 I/NearbyDiscovery(29077): (REDACTED) FastPair: 
+onAdapterStateChange: state=%s
+08-04 21:57:15.252 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:15.252 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Start scanning internally, %s
+08-04 21:57:15.320 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Starting %s scan for %s seconds
+08-04 21:57:15.320 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:57:15.321 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+Skip processForgetForBondNoneDevices, bondState != BOND_NONE, %s
+08-04 21:57:15.321 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+Skip processForgetForBondNoneDevices, bondState != BOND_NONE, %s
+08-04 21:57:15.325 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:15.326 I/NearbyDiscovery(29077): (REDACTED) DiscoveryController, 
+showNotification, itemSize=%s
+08-04 21:57:15.326 I/NearbyDiscovery(29077): (REDACTED) Show notifications: %d 
+total, no changes since last shown, no-op.
+08-04 21:57:16.018 I/serviceDiscovery(27871): [MdnsAdvertiser] Removing 
+service with ID 512
+08-04 21:57:16.045 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:57:16.045 I/NearbyConnections(29077): Unable to record discovery 
+phase duration due to null currentDiscoveryPhase
+08-04 21:57:16.053 I/NearbyConnections(29077): 26928329 
+0p:com.google.android.gms.nearby.sharing startDiscovery in nc mode.
+08-04 21:57:16.066 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+26928329 couldn't start scanning on NFC for serviceId NearbySharing.
+08-04 21:57:16.304 D/LocalBluetoothCastAdapter(30105): Cannot startDiscovery
+08-04 21:57:16.309 I/BluetoothAdapter(30105): startDiscovery
+08-04 21:57:16.311 I/BluetoothAdapterServiceBinder(25544): startDiscovery: 
+from uid/pid=1000/30105
+08-04 21:57:16.319 I/BluetoothAdapterProperties(25544): 
+Callback:discoveryStateChangeCallback with state:1
+08-04 21:57:16.327 I/serviceDiscovery(27871): [MdnsAdvertiser] Adding service 
+name: I0tTMlT8n14AAA, type: _FC9F5ED42C8A._tcp, subtypes: , hostAddresses: , 
+hostname: null, port: 53601, network: null, expirationTime: null, txtRecord: 
+{f=5180, n=MiR4Q-BFs9qrGqneIWDmPY4, IPv4=192.168.1.4} with ID 522 and subtypes 
+{} advertisingOptions MdnsAdvertisingOptions{ }
+08-04 21:57:16.419 I/Mocca_VehicleDetectionHelper(27871): (8.5.12.2)BT: 
+Processing BT intent android.bluetooth.adapter.action.DISCOVERY_STARTED
+08-04 21:57:16.452 I/MCFQS   ( 5662): (DiscoveryResponseUseCaseImpl) 
+updateCache()-[td:disco] Local{s=@id[*3c*0e], r=@id[*3c*0e], account=@id[*51], 
+family=@id[*0*], contact=@id[], buddy_activated=true}
+08-04 21:57:16.494 D/LocalBluetoothCastAdapter(30105): startDiscovery
+08-04 21:57:16.502 I/[MCFServer]_ScanCallback( 4644): onDiscoveryStarted - 
+publish to 0x10000
+08-04 21:57:16.503 I/GuestManager(25544): onDiscoveryStarted - 0
+08-04 21:57:16.902 I/BluetoothAdapter(30105): cancelDiscovery
+08-04 21:57:16.904 I/BluetoothAdapterServiceBinder(25544): cancelDiscovery: 
+from uid/pid=1000/30105
+08-04 21:57:16.904 I/bt_btif_dm(25544): system/btif/src/btif_dm.cc:3511 
+btif_dm_cancel_discovery: Cancel search
+08-04 21:57:16.904 I/BluetoothAdapterProperties(25544): 
+Callback:discoveryStateChangeCallback with state:0
+08-04 21:57:16.913 I/Mocca_VehicleDetectionHelper(27871): (8.5.12.2)BT: 
+Processing BT intent android.bluetooth.adapter.action.DISCOVERY_FINISHED
+08-04 21:57:16.918 D/LocalBluetoothCastAdapter(30105): suspendDiscovery
+08-04 21:57:16.920 I/BluetoothAdapterProperties(25544): 
+Callback:discoveryStateChangeCallback with state:0
+08-04 21:57:16.920 W/BluetoothAdapterProperties(25544): Skip sending 
+discovery_finished duplicatedly
+08-04 21:57:16.922 I/BluetoothAdapterProperties(25544): 
+Callback:discoveryStateChangeCallback with state:0
+08-04 21:57:16.922 W/BluetoothAdapterProperties(25544): Skip sending 
+discovery_finished duplicatedly
+08-04 21:57:16.923 I/[MCFServer]_ScanCallback( 4644): onDiscoveryStopped - 
+publish to 0x0
+08-04 21:57:16.924 I/GuestManager(25544): onDiscoveryStopped - 0
+08-04 21:57:16.947 D/LocalBluetoothCastAdapter(30105): cancelDiscovery
+08-04 21:57:16.948 W/GuestManager(25544): cancelDiscovery : not start advertise
+08-04 21:57:16.948 W/GuestManager(25544): cancelDiscovery : not start scan
+08-04 21:57:16.970 V/BluetoothEventManager(30105): onReceive :: 
+android.bluetooth.adapter.action.DISCOVERY_STARTED
+08-04 21:57:16.984 V/BluetoothCastEventManager(30105): onReceive :: 
+com.samsung.android.bluetooth.cast.action.DISCOVERY_STARTED
+08-04 21:57:16.986 V/BluetoothEventManager(30105): onReceive :: 
+android.bluetooth.adapter.action.DISCOVERY_FINISHED
+08-04 21:57:16.986 V/BluetoothCastEventManager(30105): onReceive :: 
+com.samsung.android.bluetooth.cast.action.DISCOVERY_FINISHED
+08-04 21:57:16.986 V/BluetoothCastEventManager(30105): onReceive :: 
+com.samsung.android.bluetooth.cast.action.DISCOVERY_FINISHED
+08-04 21:57:17.049 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+tryConnectEventStream: %s
+08-04 21:57:17.049 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+checkProfileConnectionStateInternalV2: %s
+08-04 21:57:17.051 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+updateProfileConnectionStateIfNeededV2: delayedTime=%s
+08-04 21:57:17.053 I/NearbyDiscovery(29077): (REDACTED) FastPairController: 
+updateProfileConnectionStateIfNeededV2: delayedTime=%s
+08-04 21:57:17.293 I/serviceDiscovery(27871): [MdnsAdvertiser.wlan0] Probing 
+finished for service 522
+08-04 21:57:18.342 I/ShareLive:QuickShare(29580): [D2D][RxScheduler-1] 
+[AlarmDataSourceImpl] cancelUpdateDiscoveryAlarm existingTriggerTime: 0
+08-04 21:57:18.349 I/ShareLive:QuickShare(29580): [D2D][RxScheduler-1] 
+[BroadcastUtil] sendBroadcastUpdateVisibility visibilityType=0 (legacy=2), 
+protocolXDiscovery: false
+08-04 21:57:18.356 I/MCFQS   (29634): (DeviceDiscoverySystemReceiver) 
+onReceive()-[td:main] Not available for user(150)
+08-04 21:57:19.604 W/JobScheduler(27871): Job didn't exist in JobStore: 
+8c15417 #5025/1008891012 
+com.samsung.android.mdx.kit/.discovery.impl.viewImpl.ObserverJobService
+08-04 21:57:20.156 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:20.158 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:57:20.159 I/NearbyDiscovery(29077): (REDACTED) FastPair: lock scan 
+rate if needed, %s, bondState=%s
+08-04 21:57:21.327 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 21:57:21.334 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:21.335 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 21:57:21.336 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Stopping scan, %s
+08-04 21:57:21.345 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:21.346 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Start scanning internally, %s
+08-04 21:57:21.401 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Starting %s scanning
+08-04 21:57:22.059 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: reset bluetooth 
+metadata when device is disconnected, %s
+08-04 21:57:22.059 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set batt to 
+bluetooth metadata, %s, value=%s
+08-04 21:57:22.064 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:22.065 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:22.101 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:22.102 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:22.104 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:22.105 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=EsdcCFDBFF9E, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:24.072 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:57:24.072 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:57:25.368 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=Scan6E14D38C] FastPairCache: Bloom filter changed, %s, newData=%s, 
+oldData=%s, scanMode=%s
+08-04 21:57:25.369 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set batt to 
+bluetooth metadata, %s, value=%s
+08-04 21:57:25.371 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:25.371 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:25.372 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:25.373 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:25.374 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:25.375 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: set metadata, %s, 
+key=%s, value=%s
+08-04 21:57:25.375 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: 
+notifyBatteryStatusUpdated %s.
+08-04 21:57:25.376 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=PbftDB8EAF2C, feature-id=Bano] FastPairBattery: battery 
+advertisement from %s has battery values updated, %s
+08-04 21:57:25.731 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:57:25.731 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:57:25.732 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:57:25.735 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:57:25.738 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:57:25.739 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:57:25.740 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:57:25.740 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:57:25.741 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:57:25.748 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:57:25.754 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:57:25.758 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:57:25.759 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:57:25.759 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:57:25.761 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:57:25.761 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:57:25.933 I/NearbyDiscovery(29077): (REDACTED) 
+[trigger-id=ScanBE7897EB] FastPairCache: Bloom filter changed, %s, newData=%s, 
+oldData=%s, scanMode=%s
+08-04 21:57:26.265 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:27.741 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:27.904 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:28.398 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:29.710 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:30.192 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:30.358 I/NearbyDiscovery(29077): (REDACTED) BloomFilterAdvManager: 
+Detected bloom filter but too far away, ignoring. %sm, %s
+08-04 21:57:33.424 W/ComponentDiscovery(31766): Class 
+com.google.firebase.dynamicloading.DynamicLoadingRegistrar is not an found.
+08-04 21:57:34.811 W/GuestManager(25544): cancelDiscovery : not start advertise
+08-04 21:57:34.811 W/GuestManager(25544): cancelDiscovery : not start scan
+08-04 21:57:40.763 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:57:40.763 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:57:40.766 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:57:40.772 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:57:40.775 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:57:40.805 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:57:40.815 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:57:40.815 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:57:40.817 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:57:40.829 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:57:40.862 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:57:40.879 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:57:40.883 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:57:40.884 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:57:40.888 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:57:40.888 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:57:55.889 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:57:55.890 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:57:55.891 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:57:55.896 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:57:55.901 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:57:55.919 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:57:55.924 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:57:55.925 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:57:55.927 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:57:55.940 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:57:55.973 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:57:55.992 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:57:55.999 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:57:56.001 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:57:56.009 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:57:56.009 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:57:58.216 I/fxla    (  737): (REDACTED) Scoped context discovery 
+schemas: %s.
+08-04 21:57:59.274 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:57:59.274 I/NearbySharing(29077): SendProvider: Stopping discovery.
+08-04 21:57:59.280 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 21:57:59.280 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:57:59.282 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 21:57:59.282 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Stopping scan, %s
+08-04 21:57:59.328 I/NearbySharing(29077): [NS_DEBUG] DiscoveryController 
+stopped.
+08-04 21:57:59.348 I/NearbyConnections(29077): Client 26928329 requested 
+discovery to stop.
+08-04 21:57:59.349 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:57:59.674 I/serviceDiscovery(27871): [MdnsAdvertiser] Removing 
+service with ID 522
+08-04 21:58:00.199 I/MR2ServiceImpl(27871): Updating composite discovery 
+preference | preference: RouteDiscoveryRequest{ preferredFeatures={}, 
+activeScan=false }, active routers: []
+08-04 21:58:00.264 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 21:58:00.265 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 21:58:00.266 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 21:58:00.266 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 21:58:00.267 I/NearbyDiscovery(29077): FastPairController: 
+onSystemStateChanged: skip due to flag disabled [CONTEXT service_id=265 ]
+08-04 21:58:00.356 W/DiscoveryManager(29077): BroadcastReceiver is already 
+registered
+08-04 21:58:00.363 I/DiscoveryManager(29077): Discovery state 
+(DiscoveryState{filterCriteria=[674A0243, 8E6C866D], categoryToCriteria={com.go
+ogle.android.gms.cast.CATEGORY_CAST/8E6C866D///ALLOW_IPV6=[8E6C866D], 
+com.google.android.gms.cast.CATEGORY_CAST/674A0243///ALLOW_IPV6=[674A0243]}, 
+activeScan=false, activeScanWithScreenOff=false, 
+discoveryRequestSupportsDynamicSession=false, eventFlowId=151})
+08-04 21:58:00.369 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_googlecast._tcp.local
+08-04 21:58:00.371 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_googlecast._tcp.local
+08-04 21:58:00.371 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_googlecast._tcp.local
+08-04 21:58:00.372 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_googlecast._tcp.local
+08-04 21:58:00.373 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_googlecast._tcp.local
+08-04 21:58:00.423 I/MCFQS   ( 5662): (DiscoveryResponseUseCaseImpl) 
+listenScreenStateChanged()-[td:disco] isScreenOn: false, visibility: EVERYONE
+08-04 21:58:00.797 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:58:01.505 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:58:01.507 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:58:01.508 I/NearbyDiscovery(29077): (REDACTED) FastPair: lock scan 
+rate if needed, %s, bondState=%s
+08-04 21:58:02.783 I/MR2ServiceImpl(27871): Updating composite discovery 
+preference | preference: RouteDiscoveryRequest{ preferredFeatures={}, 
+activeScan=false }, active routers: []
+08-04 21:58:04.927 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 21:58:04.927 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 21:58:06.483 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:58:11.011 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:58:11.012 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:58:11.014 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:58:11.018 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:58:11.021 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:58:11.030 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:58:11.039 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:58:11.039 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:58:11.042 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:58:11.069 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:58:11.085 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:58:11.104 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:58:11.107 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:58:11.108 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:58:11.115 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:58:11.115 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:58:11.776 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:58:15.389 D/MediaRouterService(27871): Client 
+com.sec.android.app.music (pid 6325): Set discovery request, routeTypes=0x0, 
+activeScan=false
+08-04 21:58:15.390 I/CastMirroringProvider(29077): onDiscoveryModeChanged, 
+mode=0
+08-04 21:58:15.390 D/MediaRouterService(27871): Client com.google.android.gms 
+(pid 29077): Set discovery request, routeTypes=0x0, activeScan=false
+08-04 21:58:15.391 I/CastMirroringProvider(29077): onDiscoveryModeChanged 
+removing all remote displays
+08-04 21:58:15.400 I/DiscoveryManager(29077): Discovery state 
+(DiscoveryState{filterCriteria=null, categoryToCriteria={}, activeScan=false, 
+activeScanWithScreenOff=false, discoveryRequestSupportsDynamicSession=false, 
+eventFlowId=0})
+08-04 21:58:17.303 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:58:26.120 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:58:26.120 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:58:26.122 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:58:26.122 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:58:26.126 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:58:26.131 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:58:26.146 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:58:26.146 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:58:26.159 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:58:26.178 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:58:26.206 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:58:26.244 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:58:26.250 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:58:26.252 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:58:26.259 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:58:26.259 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:58:31.996 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:58:37.509 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:58:41.263 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:58:41.264 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:58:41.265 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:58:41.266 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:58:41.272 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:58:41.284 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:58:41.313 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:58:41.314 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:58:41.319 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:58:41.335 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:58:41.366 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:58:41.401 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:58:41.405 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:58:41.405 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:58:41.411 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:58:41.411 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:58:56.414 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:58:56.414 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:58:56.416 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:58:56.417 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:58:56.424 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:58:56.435 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:58:56.448 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:58:56.449 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:58:56.452 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:58:56.463 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:58:56.485 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:58:56.506 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:58:56.513 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:58:56.514 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:58:56.524 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:58:56.524 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:59:00.830 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:00.964 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:02.264 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:07.774 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:11.530 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:59:11.530 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:59:11.532 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:59:11.533 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:59:11.539 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:59:11.554 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:59:11.577 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:59:11.577 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:59:11.580 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:59:11.599 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:59:11.626 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:59:11.642 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:59:11.653 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:59:11.653 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:59:11.659 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:59:11.660 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:59:12.323 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:17.841 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:26.665 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:59:26.666 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:59:26.668 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:59:26.669 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:59:26.675 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:59:26.687 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:59:26.706 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:59:26.706 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:59:26.709 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:59:26.720 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:59:26.747 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:59:26.769 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:59:26.773 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:59:26.773 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:59:26.780 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:59:26.781 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:59:32.541 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:38.074 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:41.786 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:59:41.787 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:59:41.789 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:59:41.789 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:59:41.796 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:59:41.809 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:59:41.841 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:59:41.844 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:59:41.850 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:59:41.863 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:59:41.882 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:59:41.903 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:59:41.908 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:59:41.909 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:59:41.914 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:59:41.917 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:59:52.704 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 21:59:56.921 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 21:59:56.921 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 21:59:56.924 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 21:59:56.932 D/NearbyBridgeService( 6212): Starting discovery
+08-04 21:59:56.937 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 21:59:56.946 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 21:59:56.955 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 21:59:56.955 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 21:59:56.957 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 21:59:56.975 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 21:59:56.994 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 21:59:57.034 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 21:59:57.039 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 21:59:57.040 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 21:59:57.044 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 21:59:57.045 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 21:59:58.221 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:00.920 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:01.048 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:12.048 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:00:12.048 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:00:12.050 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:00:12.051 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:00:12.058 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:00:12.069 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:00:12.089 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:00:12.089 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:00:12.093 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:00:12.106 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:00:12.120 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:00:12.148 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:00:12.153 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:00:12.154 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:00:12.162 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:00:12.162 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:00:13.540 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:19.055 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:23.634 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:27.166 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:00:27.166 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:00:27.168 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:00:27.169 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:00:27.173 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:00:27.178 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:00:27.188 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:00:27.188 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:00:27.189 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:00:27.198 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:00:27.216 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:00:27.236 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:00:27.239 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:00:27.240 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:00:27.250 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:00:27.250 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:00:29.139 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:33.732 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:39.248 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:42.254 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:00:42.254 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:00:42.256 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:00:42.256 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:00:42.262 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:00:42.276 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:00:42.291 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:00:42.292 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:00:42.297 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:00:42.329 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:00:42.361 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:00:42.403 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:00:42.405 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:00:42.406 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:00:42.418 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:00:42.418 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:00:43.813 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:49.337 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:00:57.422 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:00:57.422 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:00:57.424 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:00:57.426 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:00:57.435 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:00:57.457 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:00:57.477 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:00:57.479 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:00:57.483 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:00:57.503 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:00:57.539 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:00:57.578 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:00:57.583 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:00:57.585 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:00:57.590 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:00:57.590 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:01:00.989 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:01.083 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:03.992 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:05.037 I/NearbyDiscovery(29077): FastPair: isDestroyable: Scanner 
+is alive. [CONTEXT service_id=265 ]
+08-04 22:01:05.038 I/NearbyDiscovery(29077): DiscoveryService: Skip 
+stopSelf(), fast pair controller is not destroyable. [CONTEXT service_id=265 ]
+08-04 22:01:09.524 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:12.594 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:01:12.594 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:01:12.596 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:01:12.596 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:01:12.603 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:01:12.612 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:01:12.630 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:01:12.631 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:01:12.638 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:01:12.663 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:01:12.690 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:01:12.710 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:01:12.718 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:01:12.719 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:01:12.729 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:01:12.729 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:01:14.117 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:19.642 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:24.166 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:27.733 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:01:27.733 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:01:27.735 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:01:27.736 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:01:27.741 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:01:27.769 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:01:27.781 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:01:27.781 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:01:27.785 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:01:27.805 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:01:27.838 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:01:27.877 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:01:27.882 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:01:27.883 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:01:27.889 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:01:27.889 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:01:29.694 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:34.242 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:37.577 I/MR2ServiceImpl(27871): Updating composite discovery 
+preference | preference: RouteDiscoveryRequest{ preferredFeatures={}, 
+activeScan=false }, active routers: []
+08-04 22:01:38.053 I/NearbyDiscovery(29077): (REDACTED) 
+FastPairDisplayObserver: %s -> %s
+08-04 22:01:38.058 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 22:01:38.085 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 22:01:38.107 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 22:01:38.133 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 22:01:38.134 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Start scanning internally, %s
+08-04 22:01:38.173 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Starting %s scan for %s seconds
+08-04 22:01:38.181 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 22:01:38.185 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 22:01:38.185 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 22:01:38.185 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 22:01:38.186 I/NearbyDiscovery(29077): FastPairController: 
+onSystemStateChanged: skip due to flag disabled [CONTEXT service_id=265 ]
+08-04 22:01:38.236 I/MR2ServiceImpl(27871): Updating composite discovery 
+preference | preference: RouteDiscoveryRequest{ preferredFeatures={}, 
+activeScan=false }, active routers: []
+08-04 22:01:38.307 D/MediaRouterService(27871): Client com.google.android.gms 
+(pid 29077): Set discovery request, routeTypes=0x800000, activeScan=false
+08-04 22:01:38.308 I/MCFQS   ( 5662): (DiscoveryResponseUseCaseImpl) 
+listenScreenStateChanged()-[td:disco] isScreenOn: true, visibility: EVERYONE
+08-04 22:01:38.417 I/DiscoveryManager(29077): Discovery state 
+(DiscoveryState{filterCriteria=[%urn:x-cast:com.google.cast.media, CFE7FEDA], c
+ategoryToCriteria={com.google.android.gms.cast.CATEGORY_CAST//urn:x-cast:com.go
+ogle.cast.media//ALLOW_IPV6=[%urn:x-cast:com.google.cast.media], com.google.and
+roid.gms.cast.CATEGORY_CAST/CFE7FEDA/urn:x-cast:com.google.cast.media//ALLOW_IP
+V6=[CFE7FEDA, %urn:x-cast:com.google.cast.media]}, activeScan=false, 
+activeScanWithScreenOff=false, discoveryRequestSupportsDynamicSession=false, 
+eventFlowId=152})
+08-04 22:01:38.471 I/NearbyDiscovery(29077): (REDACTED) FastPairHandler: 
+Received action %s
+08-04 22:01:38.471 I/NearbyDiscovery(29077): FastPairController: 
+onSystemStateChanged: skip due to flag disabled [CONTEXT service_id=265 ]
+08-04 22:01:38.480 I/NearbySharing(29077): SendProvider: Starting discovery 
+with options: SendManagerOptions(mode=BACKGROUND, flowId=3680484303409014795, 
+uwbSenderInfo=null, deviceType=1, dataUsage=2, vendorId=0).
+08-04 22:01:38.486 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _googlecast._tcp.local
+08-04 22:01:38.490 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _googlecast._tcp.local
+08-04 22:01:38.492 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _googlecast._tcp.local
+08-04 22:01:38.576 I/NearbyConnections(29077): Client 26928329 requested 
+discovery to start.
+08-04 22:01:38.580 I/NearbyConnections(29077): 26928329 
+0p:com.google.android.gms.nearby.sharing startDiscovery in nc mode.
+08-04 22:01:38.586 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+26928329 couldn't start scanning on NFC for serviceId NearbySharing.
+08-04 22:01:38.831 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _googlecast._tcp.local
+08-04 22:01:39.049 I/serviceDiscovery(27871): [MdnsAdvertiser] Adding service 
+name: I0o0RDT8n14AAA, type: _FC9F5ED42C8A._tcp, subtypes: , hostAddresses: , 
+hostname: null, port: 53601, network: null, expirationTime: null, txtRecord: 
+{f=5180, n=MlroPvCWCDcbaeLBOyHqIq0, IPv4=192.168.1.4} with ID 544 and subtypes 
+{} advertisingOptions MdnsAdvertisingOptions{ }
+08-04 22:01:40.030 I/serviceDiscovery(27871): [MdnsAdvertiser.wlan0] Probing 
+finished for service 544
+08-04 22:01:41.044 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 22:01:41.046 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 22:01:41.048 I/NearbyDiscovery(29077): (REDACTED) FastPair: lock scan 
+rate if needed, %s, bondState=%s
+08-04 22:01:42.891 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:01:42.891 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:01:42.893 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:01:42.893 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:01:42.898 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:01:42.943 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:01:42.950 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:01:42.951 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:01:42.953 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:01:42.962 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:01:42.980 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:01:42.990 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:01:42.992 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:01:42.993 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:01:42.997 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:01:42.997 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:01:44.188 I/NearbyDiscovery(29077): (REDACTED) 
+PureOffloadFastPairScanner: eventType=%s, isInternalReq=%s, isScanning=%s, 
+isScanningAllowed=%s
+08-04 22:01:44.189 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 22:01:44.191 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+eventType=%s, intReq=%s, scanning=%s, scanAllowed=%s, bleEnabled=%s, 
+lockScanRate=%s, startScanningByLowPowerMode=%s
+08-04 22:01:44.191 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Stopping scan, %s
+08-04 22:01:44.204 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+isScreenOn=%s, isLocationEnabled=%s, disableLocationRequirement=%s, 
+isDiscoveryScanningEnabled=%s, during24GhzWifiWarmingUpPeriod=%s
+08-04 22:01:44.204 I/NearbyDiscovery(29077): (REDACTED) DiscoveryService 
+onStartCommand action: %s
+08-04 22:01:44.205 I/NearbyDiscovery(29077): (REDACTED) onAclChange: state=%s, 
+transport=%s, %s
+08-04 22:01:44.205 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Start scanning internally, %s
+08-04 22:01:44.224 I/NearbyDiscovery(29077): (REDACTED) ApFastPairScanner: 
+Starting %s scanning
+08-04 22:01:44.638 I/NearbySharing(29077): Started scanning for FastInitiation 
+with mode: SCAN_MODE_AMBIENT_DISCOVERY
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.scheduleScan -  schedule scan for ssdp:all on interface 
+null in 0 ms
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): CpDiscovery.initialize -  CP 
+Discovery Initialization Successful
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): CpDiscoveryManager.rescan -  
+Sending Rescan.
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.disableAutoRescan -  Auto rescan already stopped
+08-04 22:01:58.118 E/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.sendMultiCastRescanPackets -  No interfaces available!
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.addDeviceChangeListener -  Registering device change 
+listeners for upnp:rootdevice
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.scheduleScan -  schedule scan for upnp:rootdevice on 
+interface null in 0 ms
+08-04 22:01:58.118 I/MSF_UPNP[3.3.21.8]( 2983): CpDiscovery.registerCP -  
+Success
+08-04 22:01:58.119 E/MSF_UPNP[3.3.21.8]( 2983): CpDiscoveryManager.rescan -  
+Rescan already in progress for [upnp:rootdevice]
+08-04 22:01:58.120 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.disableAutoRescan -  Auto rescan already stopped
+08-04 22:01:58.130 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.addDeviceChangeListener -  Registering device change 
+listeners for urn:schemas-upnp-org:device:MediaRenderer:1
+08-04 22:01:58.130 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.scheduleScan -  schedule scan for 
+urn:schemas-upnp-org:device:MediaRenderer:1 on interface null in 0 ms
+08-04 22:01:58.130 I/MSF_UPNP[3.3.21.8]( 2983): CpDiscovery.registerCP -  
+Success
+08-04 22:01:58.130 E/MSF_UPNP[3.3.21.8]( 2983): CpDiscoveryManager.rescan -  
+Rescan already in progress for [urn:schemas-upnp-org:device:MediaRenderer:1]
+08-04 22:01:58.154 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.scheduleScan -  schedule scan for ssdp:all on interface 
+wlan0 in 0 ms
+08-04 22:01:58.155 I/MSF_UPNP[3.3.21.8]( 2983): 
+CpDiscoveryManager.rescanInterface -  Sending Rescan on interface: wlan0
+08-04 22:01:58.182 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:upnp:rootde
+vice] clientIp = [***.***.***.3]
+08-04 22:01:58.182 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:service:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.182 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:upnp:rootde
+vice] clientIp = [***.***.***.3]
+08-04 22:01:58.182 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:service:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.183 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] 
+[uuid:********-****-****-****-c752e23f8fb4] clientIp = [***.***.***.3]
+08-04 22:01:58.183 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] 
+[uuid:********-****-****-****-c752e23f8fb4] clientIp = [***.***.***.3]
+08-04 22:01:58.183 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] 
+[uuid:********-****-****-****-c752e23f8fb4] clientIp = [***.***.***.3]
+08-04 22:01:58.183 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] 
+[uuid:********-****-****-****-c752e23f8fb4] clientIp = [***.***.***.3]
+08-04 22:01:58.183 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:device:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.183 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:device:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.184 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:device:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.184 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:device:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.184 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:upnp:rootde
+vice] clientIp = [***.***.***.3]
+08-04 22:01:58.185 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:service:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.185 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.sendDeviceDescriptionRequest -  [3]Sent description request 
+for [uuid:********-****-****-****-c752e23f8fb4+wlan0]
+08-04 22:01:58.185 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][NEW], [uuid:******
+**-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:upnp:rootdevic
+e] clientIp = [***.***.***.3]
+08-04 22:01:58.186 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:upnp:rootde
+vice] clientIp = [***.***.***.3]
+08-04 22:01:58.187 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:service:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.189 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] 
+[uuid:********-****-****-****-c752e23f8fb4] clientIp = [***.***.***.3]
+08-04 22:01:58.190 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:device:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.190 I/MSF_UPNP[3.3.21.8]( 2983): 
+DiscoveryListener.onUDPRequestReceived -  [MSEARCH_RESPONSE][WAITING] [uuid:***
+*****-****-****-****-c752e23f8fb4****:****:****:****:****:****:****:urn:dial-mu
+ltiscreen-org:service:dial:1] clientIp = [***.***.***.3]
+08-04 22:01:58.735 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:01:58.736 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:01:58.739 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:01:58.756 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:01:58.760 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:01:58.779 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:01:58.781 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:01:58.782 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:01:58.783 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:01:58.799 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:01:58.825 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:01:58.834 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:01:58.838 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:01:58.838 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:01:58.849 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:01:58.849 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:02:00.119 I/MSF_UTILS[3.3.21.8]( 2983): 
+ExceptionHandlingExecutors.handleException -  
+[CpDiscoveryManager_rescanExecutor] Executor's task cancelled
+08-04 22:02:00.160 I/MSF_UTILS[3.3.21.8]( 2983): 
+ExceptionHandlingExecutors.handleException -  
+[CpDiscoveryManager_rescanExecutor] Executor's task cancelled
+08-04 22:02:13.852 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:02:13.852 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:02:13.855 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:02:13.860 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:02:13.864 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:02:13.886 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:02:13.890 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:02:13.890 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:02:13.895 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:02:13.914 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:02:13.935 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:02:13.945 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:02:13.947 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:02:13.948 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:02:13.953 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:02:13.953 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:02:28.954 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:02:28.954 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:02:28.955 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:02:28.956 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:02:28.958 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:02:28.971 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:02:28.976 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:02:28.976 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:02:28.977 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:02:28.982 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:02:28.991 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:02:28.996 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:02:28.998 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:02:28.998 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:02:29.000 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:02:29.000 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:02:44.003 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:02:44.003 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:02:44.004 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:02:44.005 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:02:44.007 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:02:44.032 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:02:44.039 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:02:44.039 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:02:44.040 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:02:44.045 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:02:44.063 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:02:44.073 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:02:44.078 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:02:44.078 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:02:44.082 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:02:44.082 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:03:00.566 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:03:00.566 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:03:00.569 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:03:00.606 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:03:00.611 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:03:00.624 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:03:00.631 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:03:00.631 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:03:00.632 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:03:00.637 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:03:00.645 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:03:00.650 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:03:00.651 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:03:00.652 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:03:00.653 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:03:00.654 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:03:15.654 D/NearbyBridgeService( 6212): No endpoints found after 
+15000ms, restarting discovery
+08-04 22:03:15.655 D/NearbyBridgeService( 6212): Stopping discovery
+08-04 22:03:15.656 D/NearbyBridgeService( 6212): Starting discovery
+08-04 22:03:15.656 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to stop.
+08-04 22:03:15.657 I/NearbyConnections(29077): Client 32122891 requested 
+discovery to start.
+08-04 22:03:15.669 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:03:15.671 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:03:15.671 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:03:15.672 I/NearbyConnections(29077): 32122891 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:03:15.677 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+32122891 failed to scan because of missing permissions
+08-04 22:03:15.686 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:03:15.692 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:03:15.694 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:03:15.694 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+32122891 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:03:15.697 D/NearbyConnections( 6212): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:03:15.698 D/NearbyBridgeService( 6212): Discovery started successfully
+08-04 22:03:29.855 I/serviceDiscovery(27871): [MdnsAdvertiser] Removing 
+service with ID 505
+08-04 22:03:29.887 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_2E6A93B8915A._tcp.local
+08-04 22:03:29.888 I/NearbyMediums(29077): Stopped Wifi LAN discovery.
+08-04 22:03:29.888 I/NearbyMediums(29077): Can't stop NFC discovery because it 
+was never started.
+08-04 22:03:29.889 I/NearbyConnections(29077): Unable to record discovery 
+phase duration due to null currentDiscoveryPhase
+08-04 22:03:34.538 I/NearbyDiscovery(22811): (REDACTED) 
+processGrantSlicePermission: %s
+08-04 22:03:41.245 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Unregistering listener for serviceType:_googlecast._tcp.local
+
+

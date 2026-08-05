@@ -1,0 +1,29 @@
+﻿
+08-04 22:05:33.967 D/NearbyBridgeService( 5203): stopDiscovery called but 
+discovery was not active
+08-04 22:05:34.102 I/flutter ( 5203): [Nearby] Invoking startDiscovery method
+08-04 22:05:34.169 I/flutter ( 5203): [Nearby] startDiscovery completed
+08-04 22:05:34.182 D/NearbyBridgeService( 5203): Starting discovery
+08-04 22:05:34.194 I/NearbyConnections(29077): Client 99819777 requested 
+discovery to start.
+08-04 22:05:34.194 I/NearbyConnections(29077): 99819777 
+com.example.nexus_bridge startDiscovery in nc mode.
+08-04 22:05:34.230 I/NearbyConnections(29077): In startNfcDiscovery(), client 
+99819777 failed to scan because of missing permissions
+08-04 22:05:34.309 I/NearbyConnections(29077): Pause bluetooth discovery for 
+service id : NEXUS_BRIDGE
+08-04 22:05:34.390 I/serviceDiscovery(27871): [MdnsDiscoveryManager] 
+Registering listener for serviceType: _2E6A93B8915A._tcp.local
+08-04 22:05:34.415 I/NearbyMediums(29077): Successfully started Wifi LAN 
+discovery for serviceID NEXUS_BRIDGE.
+08-04 22:05:34.415 I/NearbyConnections(29077): In startUsbDiscovery(), client 
+99819777 couldn't start scanning on USB for serviceId NEXUS_BRIDGE.
+08-04 22:05:34.427 D/NearbyConnections( 5203): Discovery started with NFC 
+requested, but there is no NfcDispatcher available. Discovery will continue 
+over other mediums instead. To use NFC discovery, pass in an Activity when 
+calling Nearby.getConnectionsClient().
+08-04 22:05:34.428 D/NearbyBridgeService( 5203): Discovery started successfully
+08-04 22:05:34.431 I/flutter ( 5203): [DEBUG_LOG] ANDROID_CALLBACK_RECEIVED: 
+method=onDiscoveryState payload={running: true}
+
+
