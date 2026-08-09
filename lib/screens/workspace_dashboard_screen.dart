@@ -374,15 +374,19 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                           .firstWhere((w) => w.id == workspace.id);
 
                       // Add approved client as member (if not already present)
+                      // Use the client's persistent app UUID as member identity.
+                      // request.requesterDeviceId is the Nearby endpoint ID used only for transport targeting.
+                      final clientId = sessionManager
+                          .clientDeviceId(request.requesterDeviceId);
                       final newMember = WorkspaceMember(
-                        id: request.requesterDeviceId,
+                        id: clientId,
                         name: request.requesterName,
-                        deviceId: request.requesterDeviceId,
+                        deviceId: clientId,
                         role: WorkspaceRole.contributor,
                         permissions: grantedRights,
                       );
                       final updatedMembers = updatedWorkspace.members
-                          .where((m) => m.deviceId != request.requesterDeviceId)
+                          .where((m) => m.deviceId != clientId)
                           .toList();
                       updatedMembers.add(newMember);
 
@@ -448,8 +452,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                             .map((requestItem) => requestItem.toJson())
                             .toList(),
                         'permissions': [
-                          for (final right in grantedRights)
-                            '${request.requesterDeviceId}:$right',
+                          for (final right in grantedRights) '$clientId:$right',
                         ],
                         'workspaceSettings': {
                           'visibility': updatedWorkspace.visibility,
@@ -538,7 +541,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                           'grantedRights': grantedRights,
                           'permissions': [
                             for (final right in grantedRights)
-                              '${request.requesterDeviceId}:$right',
+                              '$clientId:$right',
                           ],
                           'workspaceRole': 'contributor',
                         },

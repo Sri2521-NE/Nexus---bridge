@@ -60,6 +60,10 @@ class WorkspaceSessionManager extends ChangeNotifier {
   String joinRequestStatus = 'idle';
   final Set<String> _processedApprovalKeys = {};
   bool workspaceSessionActive = false;
+  // prevents concurrent executions when multiple approval messages arrive simultaneously
+  bool _isActivatingApprovedJoin = false;
+  // maps Nearby endpoint ID → persistent app device UUID for member identity
+  final Map<String, String> _endpointAppIds = {};
   String? approvalPendingWorkspaceId;
   Completer<Map<String, dynamic>>? snapshotCompleter;
   String? joinedWorkspaceName;
@@ -112,7 +116,7 @@ class WorkspaceSessionManager extends ChangeNotifier {
     final running = payload['running'] == true;
     final error = payload['error']?.toString();
     debugPrint(
-        '[DEBUG_LOG] DISCOVERY_STATE_CHANGED: running=$running error=$error payload=$payload');
+        '[DISCOVERY_DEBUG] onDiscoveryState: running=$running error=$error');
     nearbyDiscovering = running;
     offlineSessionService.setDiscoveryActive(running);
     if (!running && error != null) {
@@ -128,7 +132,7 @@ class WorkspaceSessionManager extends ChangeNotifier {
     final running = payload['running'] == true;
     final error = payload['error']?.toString();
     debugPrint(
-        '[DEBUG_LOG] ADVERTISING_STATE_CHANGED: running=$running error=$error payload=$payload');
+        '[ADVERTISING_DEBUG] onAdvertisingState: running=$running error=$error');
     advertisingNearby = running;
     offlineSessionService.setAdvertisingActive(running);
     if (!running && error != null) {
@@ -807,8 +811,9 @@ class WorkspaceSessionManager extends ChangeNotifier {
     };
 
     for (final endpoint in endpointMap.entries) {
-      await nearbyService.sendControl(
-          endpoint.key, {'type': 'WORKSPACE_SYNC', 'data': payload});
+      // Flat spread so _handleControl can read workspaceId/resources/etc at top level.
+      await nearbyService
+          .sendControl(endpoint.key, {'type': 'WORKSPACE_SYNC', ...payload});
     }
   }
 
@@ -817,6 +822,11 @@ class WorkspaceSessionManager extends ChangeNotifier {
     endpointMap[endpointId] = name;
     debugPrint('Endpoint Found: $endpointId -> $name');
   }
+
+  /// Returns the client's persistent app UUID for a given Nearby endpoint ID.
+  /// Falls back to the endpoint ID if no UUID was recorded.
+  String clientDeviceId(String endpointId) =>
+      _endpointAppIds[endpointId] ?? endpointId;
 
   void removeEndpoint(String endpointId) {
     endpointMap.remove(endpointId);
@@ -948,40 +958,38 @@ class WorkspaceSessionManager extends ChangeNotifier {
 
   // Stream subscription callbacks and P2P connection logic
   void _handleEndpointFound(Map<String, dynamic> endpoint) {
-    debugPrint('[DEBUG_LOG] ENDPOINT_FOUND (raw): $endpoint');
     final endpointId = endpoint['endpointId'] as String?;
+    final endpointName = endpoint['endpointName']?.toString() ?? 'unknown';
     debugPrint(
-        '[TRACE] _handleEndpointFound BEFORE: nearbyEndpoints.keys=${nearbyEndpoints.keys.toList()}');
+        '[ENDPOINT_DEBUG] _handleEndpointFound: id=$endpointId name=$endpointName totalKnown=${nearbyEndpoints.length}');
     if (endpointId == null) {
-      debugPrint('[TRACE] _handleEndpointFound ABORT: endpointId==null');
+      debugPrint(
+          '[ENDPOINT_DEBUG] _handleEndpointFound ABORT: endpointId is null');
       return;
     }
-    debugPrint('[TRACE] _handleEndpointFound STORE: endpointId=$endpointId');
     nearbyEndpoints[endpointId] = endpoint;
     endpointTimestamps[endpointId] = DateTime.now();
-    registerEndpoint(
-      endpointId,
-      endpoint['endpointName']?.toString() ?? 'Nearby device',
-    );
+    registerEndpoint(endpointId, endpointName);
     debugPrint(
-        '[TRACE] _handleEndpointFound AFTER: nearbyEndpoints.keys=${nearbyEndpoints.keys.toList()}');
+        '[ENDPOINT_DEBUG] _handleEndpointFound stored: totalKnown=${nearbyEndpoints.length}');
     notifyListeners();
   }
 
   void _handleEndpointLost(Map<String, dynamic> endpoint) {
     final endpointId = endpoint['endpointId'] as String?;
-    debugPrint('[DEBUG_LOG] ENDPOINT_LOST (raw): $endpoint');
+    debugPrint('[ENDPOINT_DEBUG] _handleEndpointLost: id=$endpointId');
     debugPrint(
-        '[TRACE] _handleEndpointLost BEFORE: nearbyEndpoints.keys=${nearbyEndpoints.keys.toList()}');
+        '[ENDPOINT_DEBUG] _handleEndpointLost BEFORE: nearbyEndpoints.keys=${nearbyEndpoints.keys.toList()}');
     if (endpointId == null) {
-      debugPrint('[TRACE] _handleEndpointLost ABORT: endpointId==null');
+      debugPrint(
+          '[ENDPOINT_DEBUG] _handleEndpointLost ABORT: endpointId==null');
       return;
     }
     nearbyEndpoints.remove(endpointId);
     endpointTimestamps.remove(endpointId);
     removeEndpoint(endpointId);
     debugPrint(
-        '[TRACE] _handleEndpointLost AFTER: nearbyEndpoints.keys=${nearbyEndpoints.keys.toList()}');
+        '[ENDPOINT_DEBUG] _handleEndpointLost removed $endpointId, remaining=${nearbyEndpoints.length}');
     notifyListeners();
   }
 
@@ -1032,6 +1040,7 @@ class WorkspaceSessionManager extends ChangeNotifier {
     }
 
     String requesterName = endpointName;
+    // Nearby endpoint ID is the correct target for respondJoin/sendControl; do not override with app UUID.
     String requesterDeviceId = endpointId;
     List<String> requestedRights = ['read', 'list'];
     String timestamp = DateTime.now().toIso8601String();
@@ -1040,8 +1049,12 @@ class WorkspaceSessionManager extends ChangeNotifier {
       if (requestBody.isNotEmpty) {
         final decoded = jsonDecode(requestBody) as Map<String, dynamic>;
         requesterName = decoded['requesterName']?.toString() ?? requesterName;
-        requesterDeviceId =
-            decoded['requesterDeviceId']?.toString() ?? requesterDeviceId;
+        // Record the client's persistent app UUID so the host can use it as
+        // WorkspaceMember.deviceId instead of the transient Nearby endpoint ID.
+        final decodedAppId = decoded['requesterDeviceId']?.toString();
+        if (decodedAppId != null && decodedAppId.isNotEmpty) {
+          _endpointAppIds[endpointId] = decodedAppId;
+        }
         requestedRights = List<String>.from(decoded['requestedRights'] ??
             decoded['requested_rights'] ??
             requestedRights);
@@ -1160,149 +1173,187 @@ class WorkspaceSessionManager extends ChangeNotifier {
     required String endpointId,
     required String workspaceId,
   }) async {
-    debugPrint('[Nearby] POST_APPROVAL_SEQUENCE_START');
-
-    // Step 1: End discovery mode
-    debugPrint('[Nearby] ENDING_DISCOVERY_MODE');
-    try {
-      await nearbyService.stopDiscovery();
-    } catch (_) {}
-
-    // Step 2: Mark join request as completed
-    _setJoinRequestState(pending: false, status: 'approved');
-    approvalPendingWorkspaceId = workspaceId;
-    debugPrint('[Nearby] JOIN_REQUEST_MARKED_COMPLETED');
-
-    // Step 3-5: Create/activate OfflineSessionService and WorkspaceService
-    debugPrint('[Nearby] ACTIVATING_SESSION_SERVICE');
-    offlineSessionService.setDiscoveryActive(false);
-    offlineSessionService.connectionState = 'connected';
-
-    // Create or activate workspace
-    debugPrint('[Nearby] ACTIVATING_WORKSPACE_SERVICE');
-    WorkspaceModel workspace = workspaceService.activeWorkspace ??
-        await workspaceService.createWorkspace(
-          name: 'Joined Workspace',
-          description: 'Offline workspace joined from nearby',
-          visibility: 'Local',
-          password: '',
-          type: 'Connected',
-          icon: 'workspaces',
-          ownerName: 'Nearby Host',
-          ownerDeviceId: endpointId,
-        );
-
-    // Save activeWorkspaceId
-    await workspaceService.setActiveWorkspace(workspace.id);
-    debugPrint('[Nearby] WORKSPACE_ID_SAVED');
-
-    // Step 6: Request complete workspace snapshot from host
-    debugPrint('[Nearby] REQUESTING_WORKSPACE_SNAPSHOT');
+    if (_isActivatingApprovedJoin) {
+      debugPrint(
+          '[STATE] _activateApprovedJoin already running – skipping concurrent call from endpointId=$endpointId workspaceId=$workspaceId');
+      return;
+    }
+    _isActivatingApprovedJoin = true;
+    // Arm the completer immediately so any WORKSPACE_SYNC arriving during
+    // async setup below completes it rather than falling through to a direct apply.
     snapshotCompleter = Completer<Map<String, dynamic>>();
-    await nearbyService.sendControl(endpointId, {
-      'type': 'WORKSPACE_SNAPSHOT_REQUEST',
-      'workspaceId': workspaceId,
-    });
-
-    // Step 7: Wait for WORKSPACE_SNAPSHOT from host (with timeout)
-    debugPrint('[Nearby] WAITING_FOR_SNAPSHOT');
-    Map<String, dynamic>? snapshotData;
     try {
-      snapshotData =
-          await snapshotCompleter!.future.timeout(const Duration(seconds: 10));
-    } catch (e) {
-      debugPrint('[Nearby] Snapshot timeout or error: $e');
-      snapshotData = null;
+      debugPrint('[Nearby] POST_APPROVAL_SEQUENCE_START');
+
+      // Step 1: End discovery mode
+      debugPrint('[Nearby] ENDING_DISCOVERY_MODE');
+      try {
+        await nearbyService.stopDiscovery();
+      } catch (_) {}
+      // Explicitly clear the Dart-side flag; native onDiscoveryState callback may arrive late.
+      nearbyDiscovering = false;
+      notifyListeners();
+
+      // Step 2: Mark join request as completed
+      _setJoinRequestState(pending: false, status: 'approved');
+      approvalPendingWorkspaceId = workspaceId;
+      debugPrint('[Nearby] JOIN_REQUEST_MARKED_COMPLETED');
+
+      // Step 3-5: Create/activate OfflineSessionService and WorkspaceService
+      debugPrint('[Nearby] ACTIVATING_SESSION_SERVICE');
+      offlineSessionService.setDiscoveryActive(false);
+      offlineSessionService.connectionState = 'connected';
+
+      // Create or activate workspace
+      debugPrint('[Nearby] ACTIVATING_WORKSPACE_SERVICE');
+      WorkspaceModel workspace = workspaceService.activeWorkspace ??
+          await workspaceService.createWorkspace(
+            name: 'Joined Workspace',
+            description: 'Offline workspace joined from nearby',
+            visibility: 'Local',
+            password: '',
+            type: 'Connected',
+            icon: 'workspaces',
+            ownerName: 'Nearby Host',
+            ownerDeviceId: endpointId,
+          );
+
+      // Save activeWorkspaceId
+      await workspaceService.setActiveWorkspace(workspace.id);
+      debugPrint('[Nearby] WORKSPACE_ID_SAVED');
+
+      // Step 6: Request workspace snapshot from host only if WORKSPACE_SYNC
+      // has not already completed the completer (which the host sends immediately
+      // after approval, so it often arrives before this line is reached).
+      debugPrint(
+          '[Nearby] REQUESTING_WORKSPACE_SNAPSHOT (completerDone=${snapshotCompleter!.isCompleted})');
+      if (!snapshotCompleter!.isCompleted) {
+        await nearbyService.sendControl(endpointId, {
+          'type': 'WORKSPACE_SNAPSHOT_REQUEST',
+          'workspaceId': workspaceId,
+        });
+      }
+
+      // Step 7: Wait for snapshot data (timeout is a safety net only)
+      debugPrint('[Nearby] WAITING_FOR_SNAPSHOT');
+      Map<String, dynamic>? snapshotData;
+      try {
+        snapshotData = await snapshotCompleter!.future
+            .timeout(const Duration(seconds: 10));
+      } catch (e) {
+        debugPrint('[Nearby] Snapshot timeout or error: $e');
+        snapshotData = null;
+      } finally {
+        snapshotCompleter = null;
+      }
+
+      // Step 8: Apply snapshot data to WorkspaceModel
+      if (snapshotData != null) {
+        debugPrint('[Nearby] SNAPSHOT_RECEIVED_APPLYING');
+        workspace = await _applyWorkspaceSnapshot(workspace, snapshotData);
+      } else {
+        debugPrint('[Nearby] NO_SNAPSHOT_USING_MINIMAL_WORKSPACE');
+      }
+
+      // Step 9: Persist and mark as active
+      debugPrint('[Nearby] PERSISTING_WORKSPACE');
+      workspaceService.refreshActiveWorkspace(workspace);
+      await workspaceService.setActiveWorkspace(workspace.id);
+      await workspaceService.save();
+
+      // Step 9b: Activate the client session so the workspace stays connected
+      currentWorkspace = workspace;
+      currentRole = 'contributor';
+      connectedHost = workspace.ownerDeviceId.isNotEmpty
+          ? workspace.ownerDeviceId
+          : endpointId;
+      connectionState = 'connected';
+      workspaceMembers = workspace.members;
+      sharedFolders = workspace.folders;
+      sharedResources = workspace.resources;
+      permissions = workspace.members
+          .expand((member) => member.permissions
+              .map((permission) => '${member.deviceId}:$permission'))
+          .toList();
+
+      registerEndpoint(
+        connectedHost,
+        workspace.ownerName.isEmpty ? 'Host' : workspace.ownerName,
+      );
+      debugPrint('[STATE] ACTIVE_WORKSPACE_SET ${workspace.id}');
+
+      await broadcastWorkspaceSync(
+        workspace: workspace,
+        role: 'contributor',
+        hostEndpointId: connectedHost,
+        members: workspace.members,
+        permissions: permissions,
+        folders: workspace.folders,
+        resources: workspace.resources,
+      );
+      debugPrint('[STATE] WORKSPACE_SYNC_SENT');
+
+      offlineSessionService.beginClientSession(
+        workspaceId: workspace.id,
+        workspaceName: workspace.name,
+        ownerName: workspace.ownerName,
+        ownerDeviceId: workspace.ownerDeviceId,
+      );
+      offlineSessionService.connectionState = 'connected';
+      offlineSessionService.recordEvent('Workspace activated');
+      await offlineSessionService.save();
+
+      notifyWorkspaceActivated();
+      notifyMembersUpdated();
+      notifyResourcesUpdated();
+      notifyFoldersUpdated();
+      notifyPermissionUpdated();
+      notifyConnectionStateChanged();
+
+      await save();
+      _startHeartbeat();
+
+      approvalPendingWorkspaceId = null;
+      workspaceSessionActive = true;
+
+      // Send a UI event to tell the active screen to navigate to dashboard
+      _uiEventController.add('NAVIGATE_TO_DASHBOARD');
+      notifyListeners();
     } finally {
-      snapshotCompleter = null;
+      _isActivatingApprovedJoin = false;
     }
-
-    // Step 8: Apply snapshot data to WorkspaceModel
-    if (snapshotData != null) {
-      debugPrint('[Nearby] SNAPSHOT_RECEIVED_APPLYING');
-      workspace = await _applyWorkspaceSnapshot(workspace, snapshotData);
-    } else {
-      debugPrint('[Nearby] NO_SNAPSHOT_USING_MINIMAL_WORKSPACE');
-    }
-
-    // Step 9: Persist and mark as active
-    debugPrint('[Nearby] PERSISTING_WORKSPACE');
-    workspaceService.refreshActiveWorkspace(workspace);
-    await workspaceService.setActiveWorkspace(workspace.id);
-    await workspaceService.save();
-
-    // Step 9b: Activate the client session so the workspace stays connected
-    currentWorkspace = workspace;
-    currentRole = 'contributor';
-    connectedHost = workspace.ownerDeviceId.isNotEmpty
-        ? workspace.ownerDeviceId
-        : endpointId;
-    connectionState = 'connected';
-    workspaceMembers = workspace.members;
-    sharedFolders = workspace.folders;
-    sharedResources = workspace.resources;
-    permissions = workspace.members
-        .expand((member) => member.permissions
-            .map((permission) => '${member.deviceId}:$permission'))
-        .toList();
-
-    registerEndpoint(
-      connectedHost,
-      workspace.ownerName.isEmpty ? 'Host' : workspace.ownerName,
-    );
-    debugPrint('[STATE] ACTIVE_WORKSPACE_SET ${workspace.id}');
-
-    await broadcastWorkspaceSync(
-      workspace: workspace,
-      role: 'contributor',
-      hostEndpointId: connectedHost,
-      members: workspace.members,
-      permissions: permissions,
-      folders: workspace.folders,
-      resources: workspace.resources,
-    );
-    debugPrint('[STATE] WORKSPACE_SYNC_SENT');
-
-    offlineSessionService.beginClientSession(
-      workspaceId: workspace.id,
-      workspaceName: workspace.name,
-      ownerName: workspace.ownerName,
-      ownerDeviceId: workspace.ownerDeviceId,
-    );
-    offlineSessionService.connectionState = 'connected';
-    offlineSessionService.recordEvent('Workspace activated');
-    await offlineSessionService.save();
-
-    notifyWorkspaceActivated();
-    notifyMembersUpdated();
-    notifyResourcesUpdated();
-    notifyFoldersUpdated();
-    notifyPermissionUpdated();
-    notifyConnectionStateChanged();
-
-    await save();
-    _startHeartbeat();
-
-    approvalPendingWorkspaceId = null;
-    workspaceSessionActive = true;
-
-    // Send a UI event to tell the active screen to navigate to dashboard
-    _uiEventController.add('NAVIGATE_TO_DASHBOARD');
-    notifyListeners();
   }
 
   Future<WorkspaceModel> _applyWorkspaceSnapshot(
     WorkspaceModel baseWorkspace,
     Map<String, dynamic> snapshot,
   ) async {
+    // Preserve workspaceSettings from the incoming message so workspace.type
+    // is read by applyWorkspaceSnapshot from workspaceSettings, not payload['type'].
+    final snapshotSettings =
+        snapshot['workspaceSettings'] as Map<String, dynamic>? ?? const {};
     final snapshotPayload = {
       'workspaceId': baseWorkspace.id,
       'workspaceName': snapshot['workspaceName'] ?? baseWorkspace.name,
       'description': snapshot['description'] ?? baseWorkspace.description,
-      'visibility': snapshot['visibility'] ?? 'Local',
+      'visibility': snapshot['visibility'] ??
+          snapshotSettings['visibility']?.toString() ??
+          'Local',
       'password': '',
-      'type': snapshot['workspaceType'] ?? 'Connected',
-      'icon': snapshot['icon'] ?? 'workspaces',
+      'workspaceSettings': {
+        'type': snapshot['workspaceType'] ??
+            snapshotSettings['type']?.toString() ??
+            'Connected',
+        'visibility': snapshot['visibility'] ??
+            snapshotSettings['visibility']?.toString() ??
+            'Local',
+        'icon': snapshot['icon'] ??
+            snapshotSettings['icon']?.toString() ??
+            'workspaces',
+      },
+      'icon': snapshot['icon'] ??
+          snapshotSettings['icon']?.toString() ??
+          'workspaces',
       'ownerName': snapshot['ownerName'] ?? 'Nearby Host',
       'ownerDeviceId': snapshot['ownerDeviceId'] ?? baseWorkspace.ownerDeviceId,
       'createdAt': snapshot['createdAt'] ?? baseWorkspace.createdAt,
@@ -1526,6 +1577,12 @@ class WorkspaceSessionManager extends ChangeNotifier {
             'ownerName': active.ownerName,
             'ownerDeviceId': active.ownerDeviceId,
             'createdAt': active.createdAt,
+            // Include workspaceSettings so the client resolves workspace.type correctly.
+            'workspaceSettings': {
+              'type': active.type,
+              'visibility': active.visibility,
+              'icon': active.icon,
+            },
             'workspaceMembers': membersPayload,
             'sharedResources': resourcesPayload,
             'sharedFolders': foldersPayload,
@@ -1644,20 +1701,20 @@ class WorkspaceSessionManager extends ChangeNotifier {
   }
 
   Future<void> startNearbyDiscovery() async {
-    debugPrint('[DEBUG_LOG] START_DISCOVERY');
+    debugPrint(
+        '[DISCOVERY_DEBUG] startNearbyDiscovery: nearbyDiscovering=$nearbyDiscovering');
     if (nearbyDiscovering) {
-      debugPrint(
-          '[Nearby] Discovery already active, ignoring duplicate start request');
+      debugPrint('[DISCOVERY_DEBUG] already active – skipping duplicate start');
       return;
     }
-    debugPrint('[Nearby] DISCOVERY_STARTED');
     offlineSessionService.setDiscoveryActive(true);
     nearbyDiscovering = true;
     notifyListeners();
     try {
       await nearbyService.startDiscovery();
+      debugPrint('[DISCOVERY_DEBUG] startDiscovery native call returned');
     } catch (e) {
-      debugPrint('Nearby discovery failed: $e');
+      debugPrint('[DISCOVERY_DEBUG] startDiscovery THREW: $e');
       offlineSessionService.setDiscoveryActive(false);
       nearbyDiscovering = false;
       notifyListeners();
@@ -1666,6 +1723,7 @@ class WorkspaceSessionManager extends ChangeNotifier {
   }
 
   Future<void> stopNearbyDiscovery() async {
+    debugPrint('[DISCOVERY_DEBUG] stopNearbyDiscovery called');
     try {
       await nearbyService.stopDiscovery();
     } catch (_) {}
@@ -1674,9 +1732,9 @@ class WorkspaceSessionManager extends ChangeNotifier {
   }
 
   Future<void> startNearbyAdvertising(String name, String type) async {
-    debugPrint('[DEBUG_LOG] START_ADVERTISING');
+    debugPrint(
+        '[ADVERTISING_DEBUG] startNearbyAdvertising: name=$name type=$type advertisingNearby=$advertisingNearby');
     if (advertisingNearby) return;
-    debugPrint('[Nearby] ADVERTISING_STARTED as $name ($type)');
     offlineSessionService.setAdvertisingActive(true);
     advertisingNearby = true;
     isHostMode = true;
@@ -1688,8 +1746,10 @@ class WorkspaceSessionManager extends ChangeNotifier {
     } catch (_) {}
     try {
       await nearbyService.startAdvertising('NEXUS', name);
+      debugPrint(
+          '[ADVERTISING_DEBUG] startAdvertising returned for name=$name');
     } catch (e) {
-      debugPrint('Nearby advertising failed: $e');
+      debugPrint('[ADVERTISING_DEBUG] startAdvertising THREW: $e');
       advertisingNearby = false;
       isHostMode = false;
       notifyListeners();

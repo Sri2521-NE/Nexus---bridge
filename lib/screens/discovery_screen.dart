@@ -84,7 +84,7 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
       if (event == 'NAVIGATE_TO_DASHBOARD') {
         final workspace = _workspaceSessionManager.currentWorkspace;
         if (workspace != null && mounted) {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
+          Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => WorkspaceDashboardScreen(
               workspaceName: workspace.name,
               workspaceType: workspace.type,
@@ -128,12 +128,13 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
   }
 
   Future<void> _startNearbyDiscovery() async {
+    debugPrint(
+        '[DISCOVERY_DEBUG] _startNearbyDiscovery called – nearbyDiscovering=${_workspaceSessionManager.nearbyDiscovering}');
     try {
-      debugPrint('[DEBUG_LOG] DISCOVERY STARTED (UI)');
       await _workspaceSessionManager.startNearbyDiscovery();
-      debugPrint('[DEBUG_LOG] DISCOVERY STARTED_COMPLETE (UI)');
+      debugPrint('[DISCOVERY_DEBUG] startNearbyDiscovery returned');
     } catch (e) {
-      debugPrint('[DEBUG_LOG] DISCOVERY_FAILED (UI): $e');
+      debugPrint('[DISCOVERY_DEBUG] startNearbyDiscovery THREW: $e');
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Nearby discovery failed: $e')),
@@ -183,11 +184,13 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
   }
 
   Future<void> _handleRefresh() async {
-    // Never restart discovery if workspace is active or join is approved
+    debugPrint(
+        '[APPROVAL_DEBUG] _handleRefresh: sessionActive=$_workspaceSessionActive status=$_joinRequestStatus approvalPendingId=$_approvalPendingWorkspaceId');
     if (_workspaceSessionActive ||
         _joinRequestStatus == 'approved' ||
         _approvalPendingWorkspaceId != null) {
-      debugPrint('[Nearby] Skipping discovery restart - approval in progress');
+      debugPrint(
+          '[APPROVAL_DEBUG] Skipping discovery restart – approval/session in progress (status=$_joinRequestStatus)');
       _refreshLiveStats();
       _syncWorkspaceFromService();
       return;
@@ -903,6 +906,8 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
         deviceId: entry.key,
       );
     }).toList();
+    debugPrint(
+        '[ENDPOINT_DEBUG] _buildDiscoverySection: discovering=$_nearbyDiscovering endpoints=${nearbyServers.length}');
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -920,16 +925,18 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
           ],
         ),
         const SizedBox(height: 12),
+        // [DISCOVERY_DEBUG] Spinner and list are now independent:
+        // spinner shows while scanning, list shows whenever endpoints exist.
         if (_nearbyDiscovering)
           const Center(
               child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      valueColor: AlwaysStoppedAnimation(Color(0xFF00D9FF)))))
-        else if (nearbyServers.isEmpty)
+                      valueColor: AlwaysStoppedAnimation(Color(0xFF00D9FF))))),
+        if (nearbyServers.isEmpty && !_nearbyDiscovering)
           _buildEmptyState()
-        else
+        else if (nearbyServers.isNotEmpty)
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -968,13 +975,21 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
   }
 
   Future<void> _startNearbyAdvertising() async {
-    setState(() => _advertisingNearby = true);
+    debugPrint('[ADVERTISING_DEBUG] _startNearbyAdvertising called');
+    // Capture context-dependent references before the async gap.
     final messenger = ScaffoldMessenger.of(context);
+    final sessionService = context.read<OfflineSessionService>();
+    // Stop discovery when switching to host mode so the spinner clears.
+    await _workspaceSessionManager.stopNearbyDiscovery();
+    if (!mounted) return;
+    setState(() => _advertisingNearby = true);
     try {
-      final sessionService = context.read<OfflineSessionService>();
       sessionService.setAdvertisingActive(true);
       const name = 'Nexus Bridge Host';
+      debugPrint(
+          '[ADVERTISING_DEBUG] invoking startAdvertising name=$name serviceId=nexus-community');
       await _nearbyService.startAdvertising('nexus-community', name);
+      debugPrint('[ADVERTISING_DEBUG] startAdvertising returned successfully');
       if (!mounted) return;
       final workspaceService = context.read<WorkspaceService>();
       final workspace = await workspaceService.ensureWorkspace(

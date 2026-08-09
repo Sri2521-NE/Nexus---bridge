@@ -56,6 +56,15 @@ class NearbyBridgeService : Service() {
     private var advertisingRestartTimer: Timer? = null
     private var lastCallback: String? = null
     private var lastNearbyError: String? = null
+    // [DISCOVERY_DEBUG] Handler used to schedule periodic discovery restart
+    private val discoveryRestartHandler = Handler(Looper.getMainLooper())
+    private val discoveryRestartRunnable = Runnable {
+        if (isDiscovering) {
+            Log.d(TAG, "[DISCOVERY_DEBUG] Periodic restart: stopping discovery for refresh")
+            stopDiscovery()
+            startDiscovery()
+        }
+    }
 
     private fun getMissingNearbyPermissions(): List<String> {
         val sdkInt = Build.VERSION.SDK_INT
@@ -373,9 +382,12 @@ class NearbyBridgeService : Service() {
             sendFlutterEvent("onDiscoveryState", mapOf("running" to true))
             return
         }
-        // Preserve connected endpoints while refreshing discovery results.
-        val disconnected = endpoints.filterValues { !it.connected }.keys.toList()
-        disconnected.forEach { endpoints.remove(it) }
+        // Remove all endpoints that are not part of an active connection.
+        // Previously only removed entries flagged connected=false; stale connected=true
+        // entries from prior sessions (service is START_STICKY) silently blocked re-discovery.
+        val stale = endpoints.keys.filter { !connectedEndpoints.contains(it) }.toList()
+        stale.forEach { endpoints.remove(it) }
+        Log.d(TAG, "[DISCOVERY_DEBUG] startDiscovery: removed ${stale.size} stale endpoints, active=${connectedEndpoints.size}")
         cancelDiscoveryTimers()
         logDebug("Starting discovery")
         val options = com.google.android.gms.nearby.connection.DiscoveryOptions.Builder().setStrategy(Strategy.P2P_CLUSTER).build()
@@ -383,6 +395,8 @@ class NearbyBridgeService : Service() {
             .addOnSuccessListener {
                 isDiscovering = true
                 logDebug("Discovery started successfully")
+                Log.d(TAG, "[DISCOVERY_DEBUG] startDiscovery success — scheduling restart in 30s")
+                discoveryRestartHandler.postDelayed(discoveryRestartRunnable, 30_000L)
                 sendFlutterEvent("onDiscoveryState", mapOf("running" to true))
             }
             .addOnFailureListener {
@@ -634,11 +648,12 @@ class NearbyBridgeService : Service() {
     }
 
     private fun cancelDiscoveryTimers() {
-        // No automatic discovery restart timers are used in this lifecycle.
+        discoveryRestartHandler.removeCallbacks(discoveryRestartRunnable)
+        Log.d(TAG, "[DISCOVERY_DEBUG] cancelDiscoveryTimers: restart callback removed")
     }
 
     private fun scheduleAdvertisingRestart(delayMs: Long = 10_000L) {
-        // No automatic advertising restart logic is used; host should manage advertising manually.
+        // Host advertising is managed by the Dart layer; no automatic restart here.
     }
 
     private val connectionLifecycleCallback = object : ConnectionLifecycleCallback() {
@@ -1129,24 +1144,21 @@ class NearbyBridgeService : Service() {
 
     private val endpointDiscoveryCallback = object : EndpointDiscoveryCallback() {
         override fun onEndpointFound(endpointId: String, info: com.google.android.gms.nearby.connection.DiscoveredEndpointInfo) {
-            Log.d(TAG, "onEndpointFound: endpointId=$endpointId, name=${info.endpointName}")
+            Log.d(TAG, "[ENDPOINT_DEBUG] onEndpointFound: endpointId=$endpointId, name=${info.endpointName}")
             val existing = endpoints[endpointId]
-            if (existing == null) {
-                endpoints[endpointId] = EndpointInfo(info.endpointName, System.currentTimeMillis(), connectedEndpoints.contains(endpointId))
-                val map = HashMap<String, Any?>()
-                map["endpointId"] = endpointId
-                map["endpointName"] = info.endpointName
-                invokeFlutterCallback("onEndpointFound", map)
-            } else {
-                existing.lastSeenMs = System.currentTimeMillis()
-                if (existing.endpointName != info.endpointName) {
-                    existing.endpointName = info.endpointName
-                    val map = HashMap<String, Any?>()
-                    map["endpointId"] = endpointId
-                    map["endpointName"] = info.endpointName
-                    invokeFlutterCallback("onEndpointFound", map)
-                }
-            }
+            // Always update the cache and always notify Flutter so that:
+            // (a) stale connected=true entries from prior sessions do not silently swallow re-discovery,
+            // (b) the 30-second eviction timer in the Dart layer is reset on every scan cycle.
+            endpoints[endpointId] = EndpointInfo(
+                info.endpointName,
+                System.currentTimeMillis(),
+                existing?.connected ?: connectedEndpoints.contains(endpointId)
+            )
+            val map = HashMap<String, Any?>()
+            map["endpointId"] = endpointId
+            map["endpointName"] = info.endpointName
+            Log.d(TAG, "[ENDPOINT_DEBUG] invoking Flutter onEndpointFound for $endpointId (wasKnown=${existing != null})")
+            invokeFlutterCallback("onEndpointFound", map)
         }
 
         override fun onEndpointLost(endpointId: String) {

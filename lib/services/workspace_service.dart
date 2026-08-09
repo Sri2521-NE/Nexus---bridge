@@ -716,9 +716,9 @@ class WorkspaceService extends ChangeNotifier {
         workspaceSettings['visibility']?.toString() ??
         'Local';
     final password = payload['password']?.toString() ?? '';
-    final type = payload['type']?.toString() ??
-        workspaceSettings['type']?.toString() ??
-        'Connected';
+    // Ignore payload['type']: it carries the Nearby message type string
+    // ('WORKSPACE_SNAPSHOT', 'WORKSPACE_SYNC'), not the workspace category.
+    final type = workspaceSettings['type']?.toString() ?? 'Connected';
     final icon = payload['icon']?.toString() ??
         workspaceSettings['icon']?.toString() ??
         'workspaces';
