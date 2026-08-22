@@ -556,6 +556,10 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                         },
                       );
 
+                      // Mark host session active so _syncFromWorkspaceService broadcasts changes.
+                      sessionManager.connectionState = 'connected';
+                      sessionManager.workspaceSessionActive = true;
+
                       if (!mounted) return;
                       messenger.showSnackBar(
                         SnackBar(

@@ -201,7 +201,17 @@ class WorkspaceSessionManager extends ChangeNotifier {
     workspaceMembers = serviceWorkspace.members;
     sharedFolders = serviceWorkspace.folders;
     sharedResources = serviceWorkspace.resources;
-    if (currentWorkspace != null && currentWorkspace!.id.isNotEmpty) {
+    // ROOT CAUSE FIX (connectedHost corruption): only bootstrap connectedHost from
+    // ownerDeviceId when we don't already have a live Nearby transport target set.
+    // Previously this ran unconditionally on every workspaceService change (e.g. adding
+    // a resource, completing a transfer), overwriting the correct Nearby endpointId
+    // (set in _activateApprovedJoin / activateWorkspaceFromPayload) with the host's
+    // persistent App UUID (ownerDeviceId), which is NOT a valid Nearby sendControl target.
+    // That silently broke the client's heartbeat and its outgoing WORKSPACE_SYNC push
+    // a few lines below in this same function.
+    if (connectedHost.isEmpty &&
+        currentWorkspace != null &&
+        currentWorkspace!.id.isNotEmpty) {
       connectedHost = currentWorkspace!.ownerDeviceId;
     }
 
@@ -468,7 +478,12 @@ class WorkspaceSessionManager extends ChangeNotifier {
         currentWorkspace?.id ?? 'null', activatedWorkspace.id);
     currentWorkspace = activatedWorkspace;
     currentRole = resolvedRole.name;
-    connectedHost = ownerDeviceId.isNotEmpty ? ownerDeviceId : endpointId;
+    // ROOT CAUSE FIX (connectedHost corruption): prefer the live Nearby endpointId
+    // (the actual transport target) over ownerDeviceId (a persistent App UUID that is
+    // NOT a valid Nearby sendControl target). Previously this preferred ownerDeviceId,
+    // which broke outgoing control messages (heartbeat/WORKSPACE_SYNC) whenever it
+    // differed from the endpoint id.
+    connectedHost = endpointId.isNotEmpty ? endpointId : ownerDeviceId;
     workspaceMembers = activatedWorkspace.members;
     workspaceService.refreshActiveWorkspace(activatedWorkspace);
     permissions = resolvedPermissions.isNotEmpty
@@ -1264,9 +1279,8 @@ class WorkspaceSessionManager extends ChangeNotifier {
       // Step 9b: Activate the client session so the workspace stays connected
       currentWorkspace = workspace;
       currentRole = 'contributor';
-      connectedHost = workspace.ownerDeviceId.isNotEmpty
-          ? workspace.ownerDeviceId
-          : endpointId;
+      // endpointId is the Nearby transport target; ownerDeviceId is not an endpoint ID
+      connectedHost = endpointId;
       connectionState = 'connected';
       workspaceMembers = workspace.members;
       sharedFolders = workspace.folders;
@@ -1281,17 +1295,6 @@ class WorkspaceSessionManager extends ChangeNotifier {
         workspace.ownerName.isEmpty ? 'Host' : workspace.ownerName,
       );
       debugPrint('[STATE] ACTIVE_WORKSPACE_SET ${workspace.id}');
-
-      await broadcastWorkspaceSync(
-        workspace: workspace,
-        role: 'contributor',
-        hostEndpointId: connectedHost,
-        members: workspace.members,
-        permissions: permissions,
-        folders: workspace.folders,
-        resources: workspace.resources,
-      );
-      debugPrint('[STATE] WORKSPACE_SYNC_SENT');
 
       offlineSessionService.beginClientSession(
         workspaceId: workspace.id,
@@ -1529,6 +1532,8 @@ class WorkspaceSessionManager extends ChangeNotifier {
           } finally {
             _isApplyingNetworkSync = false;
           }
+          // Refresh session-manager fields now that isApplyingNetworkSync is clear.
+          _syncFromWorkspaceService();
 
           final isLocalHost = isHostMode ||
               workspaceService.activeWorkspace?.ownerDeviceId == localDeviceId;
