@@ -322,7 +322,8 @@ void main() {
     await _sendNearbyCallback('onJoinRequest', {
       'fromEndpointId': 'client-nearby-endpoint',
       'fromEndpointName': 'Client',
-      'request': '{"requesterName":"Client","requesterDeviceId":"client-app-id"}',
+      'request':
+          '{"requesterName":"Client","requesterDeviceId":"client-app-id"}',
     });
     await _sendNearbyCallback('onEndpointLost', {
       'endpointId': 'client-nearby-endpoint',
