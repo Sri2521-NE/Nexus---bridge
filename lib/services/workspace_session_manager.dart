@@ -1002,7 +1002,15 @@ class WorkspaceSessionManager extends ChangeNotifier {
     }
     nearbyEndpoints.remove(endpointId);
     endpointTimestamps.remove(endpointId);
+    endpointRights.remove(endpointId);
+    final appUuid = _endpointAppIds.remove(endpointId);
+    if (appUuid != null) {
+      offlineSessionService.markMemberDisconnected(appUuid);
+    }
     removeEndpoint(endpointId);
+    if (endpointId == connectedHost) {
+      markDisconnected();
+    }
     debugPrint(
         '[ENDPOINT_DEBUG] _handleEndpointLost removed $endpointId, remaining=${nearbyEndpoints.length}');
     notifyListeners();
@@ -1070,6 +1078,7 @@ class WorkspaceSessionManager extends ChangeNotifier {
         if (decodedAppId != null && decodedAppId.isNotEmpty) {
           _endpointAppIds[endpointId] = decodedAppId;
         }
+        requesterDeviceId = _endpointAppIds[endpointId] ?? endpointId;
         requestedRights = List<String>.from(decoded['requestedRights'] ??
             decoded['requested_rights'] ??
             requestedRights);
@@ -1103,7 +1112,7 @@ class WorkspaceSessionManager extends ChangeNotifier {
     }
 
     offlineSessionService.registerMember(
-      deviceId: endpointId,
+      deviceId: _endpointAppIds[endpointId] ?? endpointId,
       name: requesterName,
       role: 'contributor',
       connected: true,

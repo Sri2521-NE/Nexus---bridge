@@ -727,7 +727,12 @@ class NearbyBridgeService : Service() {
 
         override fun onDisconnected(endpointId: String) {
             Log.d(TAG, "onDisconnected: $endpointId")
+            val endpointName = endpoints[endpointId]?.endpointName
             cleanupDisconnectedEndpoint(endpointId)
+            invokeFlutterCallback("onEndpointLost", mapOf(
+                "endpointId" to endpointId,
+                "endpointName" to endpointName
+            ))
         }
     }
 

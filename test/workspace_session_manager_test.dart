@@ -1,9 +1,25 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:nexus_bridge/services/nearby_service.dart';
 import 'package:nexus_bridge/services/offline_session_service.dart';
 import 'package:nexus_bridge/services/workspace_service.dart';
 import 'package:nexus_bridge/services/workspace_session_manager.dart';
+
+Future<void> _sendNearbyCallback(
+  String method,
+  Map<String, dynamic> arguments,
+) async {
+  const channel = 'com.nexusbridge/nearby';
+  const codec = StandardMethodCodec();
+  await TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .handlePlatformMessage(
+    channel,
+    codec.encodeMethodCall(MethodCall(method, arguments)),
+    (_) {},
+  );
+  await Future<void>.delayed(Duration.zero);
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -218,5 +234,106 @@ void main() {
     expect(workspaceService.activeWorkspace?.members.length, 2);
     expect(manager.currentWorkspace?.members.length, 2);
     expect(manager.currentWorkspace, same(workspaceService.activeWorkspace));
+  });
+
+  test('disconnects the client session when its connected host is lost',
+      () async {
+    SharedPreferences.setMockInitialValues({});
+    final workspaceService = WorkspaceService();
+    final sessionService = OfflineSessionService();
+    final manager = WorkspaceSessionManager(
+      nearbyService: NearbyService(),
+      workspaceService: workspaceService,
+      offlineSessionService: sessionService,
+    );
+
+    await workspaceService.load();
+    await sessionService.load();
+    await manager.activateWorkspaceFromPayload(
+      {
+        'workspaceId': 'ws-disconnect-client',
+        'workspaceName': 'Disconnect Client',
+        'ownerName': 'Host',
+        'ownerDeviceId': 'host-app-id',
+        'workspaceMembers': const [],
+        'members': const [],
+      },
+      endpointId: 'host-nearby-endpoint',
+      localDeviceId: 'client-app-id',
+      localMemberName: 'Client',
+      localRole: WorkspaceRole.contributor,
+    );
+
+    await _sendNearbyCallback('onEndpointLost', {
+      'endpointId': 'host-nearby-endpoint',
+      'endpointName': 'Host',
+    });
+
+    expect(manager.connectionState, 'disconnected');
+    expect(manager.endpointMap.containsKey('host-nearby-endpoint'), isFalse);
+  });
+
+  test('marks a lost client offline without removing workspace membership',
+      () async {
+    SharedPreferences.setMockInitialValues({});
+    final workspaceService = WorkspaceService();
+    final sessionService = OfflineSessionService();
+    final manager = WorkspaceSessionManager(
+      nearbyService: NearbyService(),
+      workspaceService: workspaceService,
+      offlineSessionService: sessionService,
+    );
+
+    await workspaceService.load();
+    await sessionService.load();
+    final workspace = await workspaceService.createWorkspace(
+      name: 'Disconnect Host',
+      description: 'test',
+      visibility: 'Local',
+      password: '',
+      type: 'Connected',
+      icon: 'workspaces',
+      ownerName: 'Host',
+      ownerDeviceId: 'host-app-id',
+    );
+    await workspaceService.updateWorkspaceMembers(workspace.id, [
+      WorkspaceMember(
+        id: 'host-app-id',
+        name: 'Host',
+        deviceId: 'host-app-id',
+        role: WorkspaceRole.owner,
+      ),
+      WorkspaceMember(
+        id: 'client-app-id',
+        name: 'Client',
+        deviceId: 'client-app-id',
+        role: WorkspaceRole.contributor,
+      ),
+    ]);
+    sessionService.setLocalDeviceId('host-app-id');
+    sessionService.beginHostSession(
+      workspaceId: workspace.id,
+      workspaceName: workspace.name,
+      ownerName: 'Host',
+      ownerDeviceId: 'host-app-id',
+    );
+    manager.isHostMode = true;
+
+    await _sendNearbyCallback('onJoinRequest', {
+      'fromEndpointId': 'client-nearby-endpoint',
+      'fromEndpointName': 'Client',
+      'request': '{"requesterName":"Client","requesterDeviceId":"client-app-id"}',
+    });
+    await _sendNearbyCallback('onEndpointLost', {
+      'endpointId': 'client-nearby-endpoint',
+      'endpointName': 'Client',
+    });
+
+    expect(sessionService.members['client-app-id']?.connected, isFalse);
+    expect(
+      workspaceService.activeWorkspace?.members
+          .any((member) => member.deviceId == 'client-app-id'),
+      isTrue,
+    );
   });
 }
