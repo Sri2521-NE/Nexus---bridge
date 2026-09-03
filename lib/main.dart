@@ -119,18 +119,21 @@ class _HomeState extends State<_Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer3<ConnectionService, ProfileService,
-        WorkspaceSessionManager>(
+    return Consumer4<ConnectionService, ProfileService,
+        WorkspaceSessionManager, OfflineSessionService>(
       builder: (context, connectionService, profileService,
-          workspaceSessionManager, _) {
+          workspaceSessionManager, offlineSessionService, _) {
         if (!profileService.profileReady &&
             !profileService.onboardingCompleted) {
           return const OnboardingScreen();
         }
         final restoredWorkspace = workspaceSessionManager.currentWorkspace;
+        // If we have a restored workspace and a local session is active
+        // show the dashboard immediately even when Nearby isn't currently
+        // connected (this covers full app restarts and host recovery).
         if (restoredWorkspace != null &&
-            workspaceSessionManager.connectionState == 'connected' &&
-            context.read<OfflineSessionService>().sessionActive) {
+            (workspaceSessionManager.workspaceSessionActive ||
+                offlineSessionService.sessionActive)) {
           return WorkspaceDashboardScreen(
             workspaceName: restoredWorkspace.name,
             workspaceType: restoredWorkspace.type,
