@@ -107,6 +107,82 @@ void main() {
     expect(manager.connectionState, 'connected');
   });
 
+  test('does not send another join request while one is pending', () async {
+    SharedPreferences.setMockInitialValues({});
+    var joinRequestCalls = 0;
+    const channel = MethodChannel('com.nexusbridge/nearby');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (call) async {
+      if (call.method == 'requestJoin') {
+        joinRequestCalls++;
+      }
+      return null;
+    });
+    addTearDown(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, null);
+    });
+
+    final manager = WorkspaceSessionManager(
+      nearbyService: NearbyService(),
+      workspaceService: WorkspaceService(),
+      offlineSessionService: OfflineSessionService(),
+    );
+
+    await manager.requestJoinWorkspace(
+      endpointId: 'host-endpoint',
+      endpointName: 'Host',
+      requesterName: 'Client',
+      localDeviceId: 'client-app-id',
+    );
+    await manager.requestJoinWorkspace(
+      endpointId: 'host-endpoint',
+      endpointName: 'Host',
+      requesterName: 'Client',
+      localDeviceId: 'client-app-id',
+    );
+
+    expect(joinRequestCalls, 1);
+    expect(manager.joinRequestPending, isTrue);
+  });
+
+  test('resolves a joining client UUID to its Nearby endpoint', () async {
+    SharedPreferences.setMockInitialValues({});
+    final workspaceService = WorkspaceService();
+    final sessionService = OfflineSessionService();
+    final manager = WorkspaceSessionManager(
+      nearbyService: NearbyService(),
+      workspaceService: workspaceService,
+      offlineSessionService: sessionService,
+    );
+    await workspaceService.load();
+    await sessionService.load();
+    sessionService.setLocalDeviceId('host-app-id');
+    manager.isHostMode = true;
+    await workspaceService.createWorkspace(
+      name: 'Host Workspace',
+      description: 'test',
+      visibility: 'Local',
+      password: '',
+      type: 'Connected',
+      icon: 'workspaces',
+      ownerName: 'Host',
+      ownerDeviceId: 'host-app-id',
+    );
+
+    await _sendNearbyCallback('onJoinRequest', {
+      'fromEndpointId': 'client-nearby-endpoint',
+      'fromEndpointName': 'Client',
+      'request':
+          '{"requesterName":"Client","requesterDeviceId":"client-app-id"}',
+    });
+
+    expect(
+      manager.endpointIdForClientDeviceId('client-app-id'),
+      'client-nearby-endpoint',
+    );
+  });
+
   test('activates a workspace from sync payload and persists the session',
       () async {
     SharedPreferences.setMockInitialValues({});
@@ -149,7 +225,7 @@ void main() {
         'host-1': 'manageMembers,resources,announcements,upload,download',
         'device-2': 'resources,announcements,upload,download',
       },
-      'sharedFolders': [
+      'folders': [
         {
           'id': 'folder-1',
           'name': 'Design',
@@ -157,13 +233,14 @@ void main() {
           'createdAt': DateTime.now().toIso8601String(),
         },
       ],
-      'sharedResources': [
+      'resources': [
         {
           'id': 'res-1',
           'name': 'Mock File',
           'kind': 'Documents',
           'sizeBytes': 1024,
           'path': '/tmp/mock',
+          'folderId': 'folder-1',
           'createdAt': DateTime.now().toIso8601String(),
         },
       ],
@@ -183,6 +260,8 @@ void main() {
     expect(manager.workspaceMembers.length, 2);
     expect(manager.connectionState, 'connected');
     expect(workspaceService.activeWorkspace?.id, 'ws-sync-1');
+    expect(workspaceService.activeWorkspace?.resources.single.folderId,
+        'folder-1');
   });
 
   test(

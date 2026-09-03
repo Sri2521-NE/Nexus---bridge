@@ -31,6 +31,7 @@ class WorkspaceDashboardScreen extends StatefulWidget {
 class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
   int _selectedIndex = 0;
   String _searchQuery = '';
+  String? _selectedFolderId;
 
   @override
   void initState() {
@@ -348,6 +349,16 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                       if (shouldApprove != true) return;
 
                       final grantedRights = selectedRights.toList()..sort();
+                      final clientEndpointId =
+                          sessionManager.endpointIdForClientDeviceId(
+                              request.requesterDeviceId);
+                      if (clientEndpointId == null) {
+                        messenger.showSnackBar(
+                          const SnackBar(
+                              content: Text('Client is no longer connected')),
+                        );
+                        return;
+                      }
 
                       // Accept the request
                       await workspaceService.acceptJoinRequest(
@@ -361,11 +372,11 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                         'workspaceName': workspace.name,
                       };
                       await nearby.respondJoin(
-                          request.requesterDeviceId, approvedPayload);
+                          clientEndpointId, approvedPayload);
 
                       // Register the endpoint so it can receive broadcast messages
                       sessionManager.registerEndpoint(
-                        request.requesterDeviceId,
+                        clientEndpointId,
                         request.requesterName,
                       );
 
@@ -375,9 +386,9 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
 
                       // Add approved client as member (if not already present)
                       // Use the client's persistent app UUID as member identity.
-                      // request.requesterDeviceId is the Nearby endpoint ID used only for transport targeting.
-                      final clientId = sessionManager
-                          .clientDeviceId(request.requesterDeviceId);
+                      // request.requesterDeviceId is the persistent member identity.
+                      final clientId =
+                          sessionManager.clientDeviceId(clientEndpointId);
                       final newMember = WorkspaceMember(
                         id: clientId,
                         name: request.requesterName,
@@ -473,7 +484,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                       );
 
                       await nearby.sendControl(
-                        request.requesterDeviceId,
+                        clientEndpointId,
                         {
                           'type': 'WORKSPACE_APPROVED',
                           ...workspaceSyncPayload,
@@ -481,7 +492,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                       );
 
                       await nearby.sendControl(
-                        request.requesterDeviceId,
+                        clientEndpointId,
                         {
                           'type': 'JOIN_APPROVED',
                           'workspaceId': updatedWorkspace.id,
@@ -549,7 +560,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
 
                       // Send workspace sync as control message
                       await nearby.sendControl(
-                        request.requesterDeviceId,
+                        clientEndpointId,
                         {
                           'type': 'WORKSPACE_SYNC',
                           ...workspaceSyncPayload,
@@ -573,7 +584,19 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                     onPressed: () async {
                       final nearby = context.read<NearbyService>();
                       final workspaceService = context.read<WorkspaceService>();
+                      final sessionManager =
+                          context.read<WorkspaceSessionManager>();
                       final messenger = ScaffoldMessenger.of(context);
+                      final clientEndpointId =
+                          sessionManager.endpointIdForClientDeviceId(
+                              request.requesterDeviceId);
+                      if (clientEndpointId == null) {
+                        messenger.showSnackBar(
+                          const SnackBar(
+                              content: Text('Client is no longer connected')),
+                        );
+                        return;
+                      }
                       await workspaceService.rejectJoinRequest(
                           workspace.id, request.id);
                       final rejectedPayload = {
@@ -582,7 +605,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                         'workspaceName': workspace.name,
                       };
                       await nearby.respondJoin(
-                          request.requesterDeviceId, rejectedPayload);
+                          clientEndpointId, rejectedPayload);
                       if (!mounted) return;
                       messenger.showSnackBar(
                         SnackBar(
@@ -601,6 +624,10 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
         final resources = workspace.resources;
         final folders = workspace.folders;
         final filteredResources = resources.where((resource) {
+          if (_selectedFolderId != null &&
+              resource.folderId != _selectedFolderId) {
+            return false;
+          }
           final query = _searchQuery.trim().toLowerCase();
           if (query.isEmpty) return true;
           return resource.name.toLowerCase().contains(query) ||
@@ -635,11 +662,20 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                 height: 64,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemCount: folders.length,
+                  itemCount: folders.length + 1,
                   separatorBuilder: (_, __) => const SizedBox(width: 10),
                   itemBuilder: (context, index) {
-                    final folder = folders[index];
-                    return _buildFolderChip(folder.name);
+                    if (index == 0) {
+                      return _buildFolderChip(
+                        id: null,
+                        name: 'All resources',
+                      );
+                    }
+                    final folder = folders[index - 1];
+                    return _buildFolderChip(
+                      id: folder.id,
+                      name: folder.name,
+                    );
                   },
                 ),
               ),
@@ -681,10 +717,13 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
       case 'Members':
         return ListView(
           children: workspace.members.map((member) {
+            final shortId = (member.deviceId.length >= 6)
+                ? member.deviceId.substring(0, 6)
+                : (member.deviceId.isNotEmpty ? member.deviceId : member.id);
             return ListTile(
               title: Text(member.name),
               subtitle: Text(member.role.name),
-              trailing: Text(member.deviceId.substring(0, 6)),
+              trailing: Text(shortId),
             );
           }).toList(),
         );
@@ -777,21 +816,33 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
     }
   }
 
-  Widget _buildFolderChip(String name) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-      decoration: BoxDecoration(
-        color: const Color(0xFF0F172A),
+  Widget _buildFolderChip({required String? id, required String name}) {
+    final selected = _selectedFolderId == id;
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF22304A)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.folder_outlined, size: 18, color: Color(0xFF00D9FF)),
-          const SizedBox(width: 8),
-          Text(name, style: const TextStyle(color: Colors.white70)),
-        ],
+        onTap: () => setState(() => _selectedFolderId = id),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          decoration: BoxDecoration(
+            color: selected ? const Color(0xFF17304C) : const Color(0xFF0F172A),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color:
+                  selected ? const Color(0xFF00D9FF) : const Color(0xFF22304A),
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.folder_outlined,
+                  size: 18, color: Color(0xFF00D9FF)),
+              const SizedBox(width: 8),
+              Text(name, style: const TextStyle(color: Colors.white70)),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -833,7 +884,30 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
       workspaceId: workspaceId,
       name: folderName,
     );
+
+    // Broadcast updated workspace to connected peers so clients see new folders
+    // After creating the folder, re-check mounted and broadcast from the
+    // live session manager to avoid using BuildContext across an await.
     if (!mounted) return;
+    try {
+      final sessionManager = context.read<WorkspaceSessionManager>();
+      final connectionService = context.read<ConnectionService>();
+      final active = workspaceService.activeWorkspace;
+      if (active != null && sessionManager.connectionState == 'connected') {
+        await sessionManager.broadcastWorkspaceSync(
+          workspace: active,
+          role: sessionManager.isHostMode ? 'owner' : 'contributor',
+          hostEndpointId:
+              connectionService.deviceId ?? sessionManager.connectedHost,
+          members: active.members,
+          permissions: sessionManager.permissions,
+          folders: active.folders,
+          resources: active.resources,
+        );
+      }
+    } catch (e) {
+      debugPrint('[DASHBOARD_DEBUG] Failed to broadcast workspace sync: $e');
+    }
     messenger.showSnackBar(
       SnackBar(content: Text('Created folder "$folderName"')),
     );

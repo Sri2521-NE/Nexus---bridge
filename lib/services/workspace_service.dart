@@ -224,6 +224,7 @@ class ResourceItem {
     required this.kind,
     required this.sizeBytes,
     required this.path,
+    this.folderId,
     required this.createdAt,
   });
 
@@ -232,6 +233,7 @@ class ResourceItem {
   final String kind;
   final int sizeBytes;
   final String path;
+  final String? folderId;
   final String createdAt;
 
   Map<String, dynamic> toJson() => {
@@ -240,6 +242,7 @@ class ResourceItem {
         'kind': kind,
         'sizeBytes': sizeBytes,
         'path': path,
+        'folderId': folderId,
         'createdAt': createdAt,
       };
 
@@ -249,6 +252,7 @@ class ResourceItem {
         kind: map['kind']?.toString() ?? 'Documents',
         sizeBytes: int.tryParse(map['sizeBytes']?.toString() ?? '0') ?? 0,
         path: map['path']?.toString() ?? '',
+        folderId: map['folderId']?.toString(),
         createdAt:
             map['createdAt']?.toString() ?? DateTime.now().toIso8601String(),
       );
@@ -853,7 +857,45 @@ class WorkspaceService extends ChangeNotifier {
               workspace.name.trim().toLowerCase(),
     );
     if (existingIndex >= 0) {
-      _workspaces[existingIndex] = _workspaces[existingIndex].copyWith(
+      final existing = _workspaces[existingIndex];
+      // Merge lists: only replace if incoming payload provided non-empty lists.
+      try {
+        debugPrint(
+            '[DEBUG_LOG] applyWorkspaceSnapshot incoming sizes: members=${workspace.members.length} resources=${workspace.resources.length} folders=${workspace.folders.length}');
+        debugPrint(
+            '[DEBUG_LOG] applyWorkspaceSnapshot existing sizes: members=${existing.members.length} resources=${existing.resources.length} folders=${existing.folders.length}');
+      } catch (_) {}
+      final mergedMembers =
+          workspace.members.isNotEmpty ? workspace.members : existing.members;
+      final mergedResources = workspace.resources.isNotEmpty
+          ? workspace.resources
+          : existing.resources;
+      final mergedFolders =
+          workspace.folders.isNotEmpty ? workspace.folders : existing.folders;
+      try {
+        debugPrint(
+            '[DEBUG_LOG] applyWorkspaceSnapshot merged sizes: members=${mergedMembers.length} resources=${mergedResources.length} folders=${mergedFolders.length}');
+      } catch (_) {}
+      final mergedAnnouncements = workspace.announcements.isNotEmpty
+          ? workspace.announcements
+          : existing.announcements;
+      final mergedInbox = workspace.inboxMessages.isNotEmpty
+          ? workspace.inboxMessages
+          : existing.inboxMessages;
+      final mergedActivity = workspace.activityLogs.isNotEmpty
+          ? workspace.activityLogs
+          : existing.activityLogs;
+      final mergedNotifications = workspace.notifications.isNotEmpty
+          ? workspace.notifications
+          : existing.notifications;
+      final mergedTransfers = workspace.transferHistory.isNotEmpty
+          ? workspace.transferHistory
+          : existing.transferHistory;
+      final mergedJoinRequests = workspace.joinRequests.isNotEmpty
+          ? workspace.joinRequests
+          : existing.joinRequests;
+
+      _workspaces[existingIndex] = existing.copyWith(
         id: workspace.id,
         name: workspace.name,
         description: workspace.description,
@@ -863,15 +905,15 @@ class WorkspaceService extends ChangeNotifier {
         icon: workspace.icon,
         ownerName: workspace.ownerName,
         ownerDeviceId: workspace.ownerDeviceId,
-        members: workspace.members,
-        resources: workspace.resources,
-        folders: workspace.folders,
-        announcements: workspace.announcements,
-        inboxMessages: workspace.inboxMessages,
-        activityLogs: workspace.activityLogs,
-        notifications: workspace.notifications,
-        transferHistory: workspace.transferHistory,
-        joinRequests: workspace.joinRequests,
+        members: mergedMembers,
+        resources: mergedResources,
+        folders: mergedFolders,
+        announcements: mergedAnnouncements,
+        inboxMessages: mergedInbox,
+        activityLogs: mergedActivity,
+        notifications: mergedNotifications,
+        transferHistory: mergedTransfers,
+        joinRequests: mergedJoinRequests,
       );
     } else {
       _workspaces.add(workspace);
@@ -1129,6 +1171,7 @@ class WorkspaceService extends ChangeNotifier {
     required String kind,
     required int sizeBytes,
     required String path,
+    String? folderId,
   }) async {
     final workspace = _findWorkspace(workspaceId);
     final resource = ResourceItem(
@@ -1137,6 +1180,7 @@ class WorkspaceService extends ChangeNotifier {
       kind: kind,
       sizeBytes: sizeBytes,
       path: path,
+      folderId: folderId,
       createdAt: DateTime.now().toIso8601String(),
     );
     final updatedResources = [...workspace.resources, resource];
@@ -1159,6 +1203,7 @@ class WorkspaceService extends ChangeNotifier {
           kind: resource.kind,
           sizeBytes: resource.sizeBytes,
           path: resource.path,
+          folderId: resource.folderId,
           createdAt: resource.createdAt,
         );
       }
@@ -1588,11 +1633,16 @@ class WorkspaceService extends ChangeNotifier {
   }
 
   WorkspaceModel _findWorkspace(String workspaceId) {
-    final index =
-        _workspaces.indexWhere((workspace) => workspace.id == workspaceId);
-    if (index < 0) {
-      throw StateError('Workspace not found');
-    }
-    return _workspaces[index];
+    final normalized = workspaceId.trim();
+    var index =
+        _workspaces.indexWhere((workspace) => workspace.id == normalized);
+    if (index >= 0) return _workspaces[index];
+
+    // Fallback: try matching by workspace name (case-insensitive)
+    index = _workspaces.indexWhere((workspace) =>
+        workspace.name.trim().toLowerCase() == normalized.toLowerCase());
+    if (index >= 0) return _workspaces[index];
+
+    throw StateError('Workspace not found');
   }
 }

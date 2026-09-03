@@ -206,4 +206,61 @@ void main() {
     expect(service.activeWorkspace?.id, 'approved-workspace');
     expect(service.activeWorkspace?.members.length, 2);
   });
+
+  test('preserves a resource folder ID through JSON serialization', () {
+    final resource = ResourceItem(
+      id: 'resource-1',
+      name: 'Brief.pdf',
+      kind: 'Document',
+      sizeBytes: 512,
+      path: '/files/brief.pdf',
+      folderId: 'folder-design',
+      createdAt: '2026-09-01T00:00:00.000',
+    );
+
+    final restored = ResourceItem.fromJson(resource.toJson());
+
+    expect(restored.folderId, 'folder-design');
+  });
+
+  test('preserves resource folder IDs when applying a workspace snapshot',
+      () async {
+    SharedPreferences.setMockInitialValues({});
+    final service = WorkspaceService();
+    await service.load();
+
+    await service.applyWorkspaceSnapshot(
+      {
+        'workspaceId': 'folder-sync-workspace',
+        'workspaceName': 'Folder Sync Workspace',
+        'ownerName': 'Host',
+        'ownerDeviceId': 'host-app-id',
+        'folders': [
+          {
+            'id': 'folder-design',
+            'name': 'Design',
+            'parentId': '',
+            'createdAt': '2026-09-01T00:00:00.000',
+          },
+        ],
+        'resources': [
+          {
+            'id': 'resource-1',
+            'name': 'Brief.pdf',
+            'kind': 'Document',
+            'sizeBytes': 512,
+            'path': '/files/brief.pdf',
+            'folderId': 'folder-design',
+            'createdAt': '2026-09-01T00:00:00.000',
+          },
+        ],
+      },
+      localDeviceId: 'client-app-id',
+      localMemberName: 'Client',
+      localRole: WorkspaceRole.contributor,
+      overrideWorkspaceId: 'folder-sync-workspace',
+    );
+
+    expect(service.activeWorkspace?.resources.single.folderId, 'folder-design');
+  });
 }

@@ -58,10 +58,6 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
   set _advertisingNearby(bool v) =>
       _workspaceSessionManager.advertisingNearby = v;
   set _isHostMode(bool v) => _workspaceSessionManager.isHostMode = v;
-  set _joinRequestPending(bool v) =>
-      _workspaceSessionManager.joinRequestPending = v;
-  set _joinRequestStatus(String v) =>
-      _workspaceSessionManager.joinRequestStatus = v;
 
   final List<_ActivityItem> _recentActivities = [];
   final List<_NotificationItem> _notifications = [];
@@ -201,7 +197,7 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
     await Future.delayed(const Duration(milliseconds: 350));
   }
 
-  void _syncWorkspaceFromService() {
+  Future<void> _syncWorkspaceFromService() async {
     if (!mounted) return;
     final workspaceService = context.read<WorkspaceService>();
     final persistedWorkspace = workspaceService.activeWorkspace;
@@ -1232,6 +1228,10 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
   }) {
     final workspaceName = server.name.isEmpty ? 'Workspace' : server.name;
     final workspaceType = _pickWorkspaceType(server.name);
+    final joinInProgress =
+        _joinRequestPending || _approvalPendingWorkspaceId != null;
+    final alreadyJoined = _workspaceSessionActive;
+    final joinBlocked = joinInProgress || alreadyJoined;
     final isProtected = workspaceName.toLowerCase().contains('secure') ||
         workspaceName.toLowerCase().contains('private');
     return AnimatedContainer(
@@ -1323,21 +1323,32 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
                           decoration: BoxDecoration(
                               color: const Color(0xFF17304C),
                               borderRadius: BorderRadius.circular(12)),
-                          child: const Center(
-                              child: Text('Available',
-                                  style: TextStyle(
+                          child: Center(
+                              child: Text(
+                                  alreadyJoined
+                                      ? 'Joined'
+                                      : joinInProgress
+                                          ? 'Pending'
+                                          : 'Available',
+                                  style: const TextStyle(
                                       color: Color(0xFF00D9FF),
                                       fontWeight: FontWeight.w700))))),
                   const SizedBox(width: 10),
                   ElevatedButton.icon(
-                      onPressed: () => _connectToServer(
-                            context,
-                            server.url,
-                            endpointId: endpointId,
-                            endpointName: endpointName,
-                          ),
+                      onPressed: joinBlocked
+                          ? null
+                          : () => _connectToServer(
+                                context,
+                                server.url,
+                                endpointId: endpointId,
+                                endpointName: endpointName,
+                              ),
                       icon: const Icon(Icons.login_rounded, size: 18),
-                      label: const Text('Join')),
+                      label: Text(alreadyJoined
+                          ? 'Joined'
+                          : joinInProgress
+                              ? 'Pending'
+                              : 'Join')),
                 ]),
               ],
             ),
@@ -1601,8 +1612,17 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
     String? endpointId,
     String? endpointName,
   }) async {
-    final connectionService = context.read<ConnectionService>();
     final messenger = ScaffoldMessenger.of(context);
+    if (_joinRequestPending ||
+        _workspaceSessionActive ||
+        _approvalPendingWorkspaceId != null) {
+      messenger.showSnackBar(
+        const SnackBar(
+            content: Text('A nearby workspace request is already active')),
+      );
+      return;
+    }
+    final connectionService = context.read<ConnectionService>();
     final workspaceService = context.read<WorkspaceService>();
     final navigator = Navigator.of(context);
     final profile = context.read<ProfileService>().profile;
@@ -1620,23 +1640,12 @@ class _DiscoveryScreenState extends State<DiscoveryScreen> {
 
     if (endpointId != null && endpointId.isNotEmpty) {
       final localDeviceId = connectionService.deviceId ?? 'local-device';
-      final requestPayload = {
-        'workspaceId': _joinedWorkspaceName == null
-            ? 'workspace_unknown'
-            : _joinedWorkspaceName!.replaceAll(' ', '_').toLowerCase(),
-        'workspaceName':
-            _joinedWorkspaceName ?? endpointName ?? 'Nearby Workspace',
-        'requesterName': requesterName,
-        'requesterDeviceId': localDeviceId,
-        'requestedRights': ['read', 'write', 'list'],
-        'timestamp': DateTime.now().toIso8601String(),
-      };
-      debugPrint('[Nearby] JOIN_REQUEST_SENT');
-      await _nearbyService.requestJoin(endpointId, requestPayload);
-      setState(() {
-        _joinRequestPending = true;
-        _joinRequestStatus = 'pending';
-      });
+      await _workspaceSessionManager.requestJoinWorkspace(
+        endpointId: endpointId,
+        endpointName: endpointName ?? 'Nearby Workspace',
+        requesterName: requesterName,
+        localDeviceId: localDeviceId,
+      );
       _addActivity('Join request sent', 'Waiting for host approval',
           icon: Icons.send_rounded);
       _pushNotification(

@@ -843,6 +843,14 @@ class WorkspaceSessionManager extends ChangeNotifier {
   String clientDeviceId(String endpointId) =>
       _endpointAppIds[endpointId] ?? endpointId;
 
+  /// Returns the live Nearby endpoint ID for a persistent client app UUID.
+  String? endpointIdForClientDeviceId(String deviceId) {
+    for (final entry in _endpointAppIds.entries) {
+      if (entry.value == deviceId) return entry.key;
+    }
+    return null;
+  }
+
   void removeEndpoint(String endpointId) {
     endpointMap.remove(endpointId);
     debugPrint('Endpoint Lost: $endpointId');
@@ -1221,6 +1229,8 @@ class WorkspaceSessionManager extends ChangeNotifier {
       // Step 2: Mark join request as completed
       _setJoinRequestState(pending: false, status: 'approved');
       approvalPendingWorkspaceId = workspaceId;
+      nearbyEndpoints.remove(endpointId);
+      endpointTimestamps.remove(endpointId);
       debugPrint('[Nearby] JOIN_REQUEST_MARKED_COMPLETED');
 
       // Step 3-5: Create/activate OfflineSessionService and WorkspaceService
@@ -1230,17 +1240,22 @@ class WorkspaceSessionManager extends ChangeNotifier {
 
       // Create or activate workspace
       debugPrint('[Nearby] ACTIVATING_WORKSPACE_SERVICE');
-      WorkspaceModel workspace = workspaceService.activeWorkspace ??
-          await workspaceService.createWorkspace(
-            name: 'Joined Workspace',
-            description: 'Offline workspace joined from nearby',
-            visibility: 'Local',
-            password: '',
-            type: 'Connected',
-            icon: 'workspaces',
-            ownerName: 'Nearby Host',
-            ownerDeviceId: endpointId,
-          );
+      final activeWorkspace = workspaceService.activeWorkspace;
+      WorkspaceModel workspace;
+      if (activeWorkspace != null && activeWorkspace.id == workspaceId) {
+        workspace = activeWorkspace;
+      } else {
+        workspace = await workspaceService.createWorkspace(
+          name: 'Joined Workspace',
+          description: 'Offline workspace joined from nearby',
+          visibility: 'Local',
+          password: '',
+          type: 'Connected',
+          icon: 'workspaces',
+          ownerName: 'Nearby Host',
+          ownerDeviceId: endpointId,
+        );
+      }
 
       // Save activeWorkspaceId
       await workspaceService.setActiveWorkspace(workspace.id);
@@ -1370,8 +1385,9 @@ class WorkspaceSessionManager extends ChangeNotifier {
       'ownerDeviceId': snapshot['ownerDeviceId'] ?? baseWorkspace.ownerDeviceId,
       'createdAt': snapshot['createdAt'] ?? baseWorkspace.createdAt,
       'workspaceMembers': snapshot['workspaceMembers'] ?? [],
-      'sharedResources': snapshot['sharedResources'] ?? [],
-      'sharedFolders': snapshot['sharedFolders'] ?? [],
+      'sharedResources':
+          snapshot['sharedResources'] ?? snapshot['resources'] ?? [],
+      'sharedFolders': snapshot['sharedFolders'] ?? snapshot['folders'] ?? [],
       'inboxMessages': snapshot['inboxMessages'] ?? [],
       'announcements': snapshot['announcements'] ?? [],
     };
@@ -1515,6 +1531,16 @@ class WorkspaceSessionManager extends ChangeNotifier {
         final data = Map<String, dynamic>.from(jo as Map? ?? const {});
         debugPrint('[STATE] WORKSPACE_SYNC_RECEIVED');
         debugPrint('[Nearby] WORKSPACE_SNAPSHOT_RECEIVED');
+        try {
+          final incomingFolders = (data['folders'] as List<dynamic>?) ??
+              (data['sharedFolders'] as List<dynamic>?) ??
+              const [];
+          final incomingResources = (data['resources'] as List<dynamic>?) ??
+              (data['sharedResources'] as List<dynamic>?) ??
+              const [];
+          debugPrint(
+              '[DEBUG_LOG] Incoming WORKSPACE_SYNC: folders=${incomingFolders.length} resources=${incomingResources.length} keys=${data.keys.toList()}');
+        } catch (_) {}
 
         if (snapshotCompleter != null && !snapshotCompleter!.isCompleted) {
           snapshotCompleter!.complete(data);
@@ -1697,6 +1723,13 @@ class WorkspaceSessionManager extends ChangeNotifier {
     required String requesterName,
     required String localDeviceId,
   }) async {
+    if (joinRequestPending ||
+        workspaceSessionActive ||
+        approvalPendingWorkspaceId != null) {
+      debugPrint(
+          '[Nearby] JOIN_REQUEST_SKIPPED: session already pending or active');
+      return;
+    }
     final requestPayload = {
       'workspaceId': joinedWorkspaceName == null
           ? 'workspace_unknown'
