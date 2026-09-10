@@ -514,6 +514,9 @@ class WorkspaceService extends ChangeNotifier {
   final List<JoinRequest> _pendingJoinRequests = [];
   String? _activeWorkspaceId;
   bool _loaded = false;
+  // Track last-applied snapshot timestamps per workspace to avoid applying
+  // older or duplicate snapshots that can wipe or regress local state.
+  final Map<String, String> _lastSnapshotTimestamps = {};
 
   String _timestamp() => DateTime.now().toIso8601String();
 
@@ -572,6 +575,12 @@ class WorkspaceService extends ChangeNotifier {
           method: 'load');
       final workspaceMaps =
           List<Map<String, dynamic>>.from(decoded['workspaces'] ?? []);
+      final tsMap =
+          Map<String, dynamic>.from(decoded['lastSnapshotTimestamps'] ?? {});
+      _lastSnapshotTimestamps.clear();
+      for (final entry in tsMap.entries) {
+        _lastSnapshotTimestamps[entry.key.toString()] = entry.value.toString();
+      }
       for (final workspaceMap in workspaceMaps) {
         final workspace = WorkspaceModel.fromJson(workspaceMap);
         _workspaces.add(workspace);
@@ -596,6 +605,7 @@ class WorkspaceService extends ChangeNotifier {
     final payload = {
       'activeWorkspaceId': _activeWorkspaceId,
       'workspaces': _workspaces.map((workspace) => workspace.toJson()).toList(),
+      'lastSnapshotTimestamps': _lastSnapshotTimestamps,
     };
     await prefs.setString(_prefKey, jsonEncode(payload));
     notifyListeners();
@@ -856,6 +866,24 @@ class WorkspaceService extends ChangeNotifier {
           entry.name.trim().toLowerCase() ==
               workspace.name.trim().toLowerCase(),
     );
+
+    // Snapshot sequencing: ignore incoming snapshots that are older-or-equal
+    // to the last applied snapshot for this workspace to avoid regressions.
+    final incomingTsStr = payload['snapshotTimestamp']?.toString();
+    DateTime? incomingTs;
+    if (incomingTsStr != null) {
+      incomingTs = DateTime.tryParse(incomingTsStr);
+    }
+    if (incomingTs != null && workspace.id.isNotEmpty) {
+      final lastStr = _lastSnapshotTimestamps[workspace.id];
+      final lastTs = lastStr != null ? DateTime.tryParse(lastStr) : null;
+      if (lastTs != null && !incomingTs.isAfter(lastTs)) {
+        debugPrint(
+            '[DEBUG_LOG] Ignored workspace snapshot for ${workspace.id}: incoming=$incomingTsStr last=$lastStr');
+        if (existingIndex >= 0) return _workspaces[existingIndex];
+        // If no existing workspace, continue and accept snapshot anyway.
+      }
+    }
     if (existingIndex >= 0) {
       final existing = _workspaces[existingIndex];
       // Merge lists: only replace if incoming payload provided non-empty lists.
@@ -865,16 +893,48 @@ class WorkspaceService extends ChangeNotifier {
         debugPrint(
             '[DEBUG_LOG] applyWorkspaceSnapshot existing sizes: members=${existing.members.length} resources=${existing.resources.length} folders=${existing.folders.length}');
       } catch (_) {}
-      final mergedMembers =
-          workspace.members.isNotEmpty ? workspace.members : existing.members;
-      final mergedResources = workspace.resources.isNotEmpty
-          ? workspace.resources
-          : existing.resources;
-      final mergedFolders =
-          workspace.folders.isNotEmpty ? workspace.folders : existing.folders;
+      // Merge members/resources/folders by ID so partial or empty incoming
+      // snapshots cannot erase locally-held items. Incoming items override
+      // existing ones when IDs match; otherwise items are preserved.
+      List<WorkspaceMember> mergedMembers() {
+        if (workspace.members.isEmpty) return existing.members;
+        final map = <String, WorkspaceMember>{};
+        for (final m in existing.members) {
+          map[m.id] = m;
+        }
+        for (final m in workspace.members) {
+          map[m.id] = m;
+        }
+        return map.values.toList();
+      }
+
+      List<ResourceItem> mergedResources() {
+        if (workspace.resources.isEmpty) return existing.resources;
+        final map = <String, ResourceItem>{};
+        for (final r in existing.resources) {
+          map[r.id] = r;
+        }
+        for (final r in workspace.resources) {
+          map[r.id] = r;
+        }
+        return map.values.toList();
+      }
+
+      List<WorkspaceFolder> mergedFolders() {
+        if (workspace.folders.isEmpty) return existing.folders;
+        final map = <String, WorkspaceFolder>{};
+        for (final f in existing.folders) {
+          map[f.id] = f;
+        }
+        for (final f in workspace.folders) {
+          map[f.id] = f;
+        }
+        return map.values.toList();
+      }
+
       try {
         debugPrint(
-            '[DEBUG_LOG] applyWorkspaceSnapshot merged sizes: members=${mergedMembers.length} resources=${mergedResources.length} folders=${mergedFolders.length}');
+            '[DEBUG_LOG] applyWorkspaceSnapshot merged sizes: members=${mergedMembers().length} resources=${mergedResources().length} folders=${mergedFolders().length}');
       } catch (_) {}
       final mergedAnnouncements = workspace.announcements.isNotEmpty
           ? workspace.announcements
@@ -905,9 +965,9 @@ class WorkspaceService extends ChangeNotifier {
         icon: workspace.icon,
         ownerName: workspace.ownerName,
         ownerDeviceId: workspace.ownerDeviceId,
-        members: mergedMembers,
-        resources: mergedResources,
-        folders: mergedFolders,
+        members: mergedMembers(),
+        resources: mergedResources(),
+        folders: mergedFolders(),
         announcements: mergedAnnouncements,
         inboxMessages: mergedInbox,
         activityLogs: mergedActivity,
@@ -915,9 +975,14 @@ class WorkspaceService extends ChangeNotifier {
         transferHistory: mergedTransfers,
         joinRequests: mergedJoinRequests,
       );
+      // Record applied snapshot timestamp
+      _lastSnapshotTimestamps[workspace.id] =
+          incomingTsStr ?? DateTime.now().toIso8601String();
     } else {
       _workspaces.add(workspace);
       debugPrint('[DEBUG_LOG] WORKSPACE_SNAPSHOT_ADDED: ${workspace.id}');
+      _lastSnapshotTimestamps[workspace.id] =
+          incomingTsStr ?? DateTime.now().toIso8601String();
     }
 
     _pendingJoinRequests.removeWhere((entry) =>

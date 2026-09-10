@@ -190,10 +190,18 @@ class WorkspaceSessionManager extends ChangeNotifier {
       return;
     }
 
-    if (_isApplyingNetworkSync) {
-      // Suppress broadcast because this change was triggered by receiving a sync payload
-      return;
-    }
+    // If we're currently applying a network sync, avoid suppressing
+    // local host-originated broadcasts. Record the flag and use it
+    // later when deciding whether to send outbound updates.
+    final bool suppressNetworkEcho = _isApplyingNetworkSync;
+
+    // Capture previous counts so we can detect local changes (e.g. new folder)
+    // and force an immediate re-broadcast with the updated payload. This
+    // helps when createFolder() updates the workspace and we need to ensure
+    // the host sends the new folder promptly (avoids races where outgoing
+    // payloads appear empty to clients).
+    final int previousFoldersCount = sharedFolders.length;
+    final int previousResourcesCount = sharedResources.length;
 
     _traceState('_syncFromWorkspaceService', 'currentWorkspace',
         currentWorkspace?.id ?? 'null', serviceWorkspace.id);
@@ -201,6 +209,11 @@ class WorkspaceSessionManager extends ChangeNotifier {
     workspaceMembers = serviceWorkspace.members;
     sharedFolders = serviceWorkspace.folders;
     sharedResources = serviceWorkspace.resources;
+
+    final bool foldersChanged =
+      serviceWorkspace.folders.length != previousFoldersCount;
+    final bool resourcesChanged =
+      serviceWorkspace.resources.length != previousResourcesCount;
     // ROOT CAUSE FIX (connectedHost corruption): only bootstrap connectedHost from
     // ownerDeviceId when we don't already have a live Nearby transport target set.
     // Previously this ran unconditionally on every workspaceService change (e.g. adding
@@ -221,18 +234,29 @@ class WorkspaceSessionManager extends ChangeNotifier {
       final isLocalHost =
           isHostMode || serviceWorkspace.ownerDeviceId == localDeviceId;
       if (isLocalHost) {
-        // Host broadcasts updates to all connected clients
-        broadcastWorkspaceSync(
-          workspace: serviceWorkspace,
-          role: 'owner',
-          hostEndpointId: localDeviceId,
-          members: serviceWorkspace.members,
-          permissions: permissions,
-          folders: serviceWorkspace.folders,
-          resources: serviceWorkspace.resources,
-        );
+        // Host broadcasts updates to all connected clients.
+        // If folders/resources changed locally, always re-broadcast even
+        // if we're currently applying a network sync to avoid losing
+        // recently-created items.
+        if (!suppressNetworkEcho || foldersChanged || resourcesChanged) {
+          broadcastWorkspaceSync(
+            workspace: serviceWorkspace,
+            role: 'owner',
+            hostEndpointId: localDeviceId,
+            members: serviceWorkspace.members,
+            permissions: permissions,
+            folders: serviceWorkspace.folders,
+            resources: serviceWorkspace.resources,
+          );
+        } else {
+          // suppressed network-driven echo; do not send outbound update
+        }
       } else if (connectedHost.isNotEmpty) {
         // Client sends its local update to the host
+        // If we're currently applying a network sync, avoid echoing
+        // back intermediate network-driven state to the host. Allow
+        // client->host sends only when not suppressed.
+        if (suppressNetworkEcho) return;
         final payload = {
           'workspaceId': serviceWorkspace.id,
           'workspaceName': serviceWorkspace.name,
@@ -817,6 +841,19 @@ class WorkspaceSessionManager extends ChangeNotifier {
       'sharedFolders': folders.map((folder) => folder.toJson()).toList(),
       'sharedResources':
           resources.map((resource) => resource.toJson()).toList(),
+      // Provide legacy/variant keys so receivers that look for different
+      // field names will still pick up data. Some clients send/expect
+      // `folders`/`resources` while others use `sharedFolders`/`sharedResources`.
+      'folders': folders.map((folder) => folder.toJson()).toList(),
+      'resources': resources.map((resource) => resource.toJson()).toList(),
+      'members': members
+          .map((member) => {
+                'id': member.id,
+                'name': member.name,
+                'deviceId': member.deviceId,
+                'role': member.role.name,
+              })
+          .toList(),
       'workspaceSettings': {
         'visibility': workspace.visibility,
         'type': workspace.type,
@@ -825,7 +862,16 @@ class WorkspaceSessionManager extends ChangeNotifier {
       'workspaceRole': role,
     };
 
+    // Summarize payload counts for easier debugging
+    final int outgoingFolders = (payload['folders'] as List).length;
+    final int outgoingResources = (payload['resources'] as List).length;
+    final int outgoingMembers = (payload['members'] as List).length;
+    debugPrint(
+      '[OUTGOING] WORKSPACE_SYNC payload folders=$outgoingFolders resources=$outgoingResources members=$outgoingMembers workspaceId=${payload['workspaceId']}');
+
     for (final endpoint in endpointMap.entries) {
+      debugPrint(
+        '[OUTGOING] Sending WORKSPACE_SYNC -> ${endpoint.key} folders=$outgoingFolders resources=$outgoingResources members=$outgoingMembers');
       // Flat spread so _handleControl can read workspaceId/resources/etc at top level.
       await nearbyService
           .sendControl(endpoint.key, {'type': 'WORKSPACE_SYNC', ...payload});
@@ -1626,6 +1672,9 @@ class WorkspaceSessionManager extends ChangeNotifier {
             'workspaceMembers': membersPayload,
             'sharedResources': resourcesPayload,
             'sharedFolders': foldersPayload,
+            // Backwards-compatible aliases
+            'resources': resourcesPayload,
+            'folders': foldersPayload,
             'announcements': announcementsPayload,
             'activityLogs': activityPayload,
             'inboxMessages': inboxPayload,
@@ -1650,7 +1699,6 @@ class WorkspaceSessionManager extends ChangeNotifier {
         handleHeartbeatReceived(endpointId);
         return;
       }
-
       if (type == 'CHUNK_ACK') {
         final tid = jo['transfer_id'];
         final seq = jo['seq'];

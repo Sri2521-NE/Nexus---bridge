@@ -119,8 +119,8 @@ class _HomeState extends State<_Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer4<ConnectionService, ProfileService,
-        WorkspaceSessionManager, OfflineSessionService>(
+    return Consumer4<ConnectionService, ProfileService, WorkspaceSessionManager,
+        OfflineSessionService>(
       builder: (context, connectionService, profileService,
           workspaceSessionManager, offlineSessionService, _) {
         if (!profileService.profileReady &&

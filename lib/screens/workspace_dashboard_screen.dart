@@ -472,6 +472,7 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                           'ownerName': updatedWorkspace.ownerName,
                         },
                         'workspaceRole': 'contributor',
+                        'snapshotTimestamp': DateTime.now().toIso8601String(),
                       };
 
                       await workspaceService.applyWorkspaceSnapshot(
@@ -564,6 +565,14 @@ class _WorkspaceDashboardScreenState extends State<WorkspaceDashboardScreen> {
                         {
                           'type': 'WORKSPACE_SYNC',
                           ...workspaceSyncPayload,
+                          // Ensure both naming variants are present for compat.
+                          'sharedFolders':
+                              workspaceSyncPayload['folders'] ?? [],
+                          'sharedResources':
+                              workspaceSyncPayload['resources'] ?? [],
+                          'workspaceMembers': workspaceSyncPayload['members'] ??
+                              workspaceSyncPayload['workspaceMembers'] ??
+                              [],
                         },
                       );
 
